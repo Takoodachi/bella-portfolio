@@ -1098,6 +1098,12 @@ p + p { margin-top: 1.1em; }
   text-align: center;
 }
 .pv-flex { flex: 1; }
+/* Zoom controls only make sense in the enlarged reader */
+.pdf-viewer:not(.enlarged) [data-pv="zoom-in"],
+.pdf-viewer:not(.enlarged) [data-pv="zoom-out"],
+.pdf-viewer:not(.enlarged) [data-pv-zoom] {
+  display: none;
+}
 .pdf-stage {
   overflow: auto;
   height: clamp(420px, 62vh, 620px);
@@ -1242,14 +1248,16 @@ body.pdf-enlarged::after {
   cursor: pointer;
   display: grid;
   place-items: center;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
-.lightbox button:hover { background: var(--jade); transform: scale(1.08); }
+.lightbox button:hover {
+  background: var(--jade);
+  border-color: var(--jade);
+  box-shadow: 0 0 0 6px rgba(47, 125, 95, 0.35);
+}
 .lb-close { top: 1.4rem; right: 1.4rem; }
 .lb-prev { left: 1.2rem; top: 50%; transform: translateY(-50%); }
 .lb-next { right: 1.2rem; top: 50%; transform: translateY(-50%); }
-.lb-prev:hover { transform: translateY(-50%) scale(1.08); }
-.lb-next:hover { transform: translateY(-50%) scale(1.08); }
 .lb-count {
   position: absolute;
   bottom: 1.4rem;

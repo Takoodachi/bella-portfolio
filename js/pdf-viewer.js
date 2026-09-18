@@ -67,6 +67,7 @@
       document.body.appendChild(viewer);
     } else {
       homeParent.insertBefore(viewer, homeMarker.nextSibling);
+      zoom = 1; /* zoom is an enlarged-only feature; minimized always shows fit-to-width */
     }
     viewer.classList.toggle("enlarged", on);
     document.body.classList.toggle("pdf-enlarged", on);
