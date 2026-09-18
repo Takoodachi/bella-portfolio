@@ -273,7 +273,7 @@
         <div class="ph-card reveal">
           <span class="tag">Coming Soon</span>
           <h4>Poetry</h4>
-          <p>A selection of poems is being prepared for this space.</p>
+          <p>A selection of poems, coming soon.</p>
         </div>
         <!-- PLACEHOLDER: link to The Spire when the URL is available -->
         <a class="ph-card reveal" href="#" onclick="return false">
@@ -347,7 +347,7 @@
         <div class="ph-card reveal">
           <span class="tag">Coming Soon</span>
           <h4>The Governor's Review</h4>
-          <p>Selected features from my school's student publication will be linked here.</p>
+          <p>Selected features from my school's student publication, coming soon.</p>
         </div>
         <div class="ph-card reveal">
           <span class="tag">In Progress</span>
@@ -382,8 +382,18 @@
           </div>
         </div>
         <div class="reveal reveal-right">
-          <div class="pdf-embed">
-            <iframe src="assets/docs/john-locke-essay.pdf" title="John Locke Institute Essay by Bella Duong"></iframe>
+          <div class="pdf-viewer" data-pdf="assets/docs/john-locke-essay.pdf">
+            <div class="pdf-toolbar">
+              <button class="pv-btn" data-pv="prev" aria-label="Previous page">←</button>
+              <span class="pv-info" data-pv-page>– / –</span>
+              <button class="pv-btn" data-pv="next" aria-label="Next page">→</button>
+              <span class="pv-flex"></span>
+              <button class="pv-btn" data-pv="zoom-out" aria-label="Zoom out">−</button>
+              <span class="pv-info" data-pv-zoom>100%</span>
+              <button class="pv-btn" data-pv="zoom-in" aria-label="Zoom in">+</button>
+              <button class="pv-btn" data-pv="expand" aria-label="Enlarge reader" title="Enlarge">⛶</button>
+            </div>
+            <div class="pdf-stage"><canvas aria-label="John Locke Institute Essay by Bella Duong"></canvas></div>
           </div>
         </div>
       </div>
@@ -423,5 +433,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="js/pdf-viewer.js"></script>
 </body>
 </html>

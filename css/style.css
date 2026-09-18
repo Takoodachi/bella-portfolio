@@ -127,6 +127,7 @@ body.is-exiting .page-veil {
 .reveal.in-view {
   opacity: 1;
   transform: none;
+  will-change: auto;
 }
 .reveal-left  { transform: translateX(-50px); }
 .reveal-right { transform: translateX(50px); }
@@ -1048,17 +1049,83 @@ p + p { margin-top: 1.1em; }
 }
 .article-fig .frame { border-radius: 10px; }
 
-.pdf-embed {
+/* Custom PDF reader */
+.pdf-viewer {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(22, 21, 15, 0.06);
 }
-.pdf-embed iframe {
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  flex-wrap: wrap;
+}
+.pv-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: none;
+  color: var(--ink);
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.3s var(--ease-out);
+  padding: 0;
+}
+.pv-btn:hover {
+  background: var(--jade);
+  border-color: var(--jade);
+  color: #fff;
+  transform: scale(1.08);
+}
+.pv-info {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  min-width: 3.4rem;
+  text-align: center;
+}
+.pv-flex { flex: 1; }
+.pdf-stage {
+  overflow: auto;
+  height: clamp(420px, 62vh, 620px);
+  background: var(--bg-alt);
+  padding: 1rem;
+}
+.pdf-stage canvas {
   display: block;
-  width: 100%;
-  height: clamp(420px, 65vh, 640px);
-  border: 0;
+  margin: 0 auto;
+  box-shadow: 0 6px 22px rgba(22, 21, 15, 0.14);
+  background: #fff;
+}
+.pdf-viewer.enlarged {
+  position: fixed;
+  inset: clamp(0.75rem, 3vw, 2.5rem);
+  z-index: 1600;
+  box-shadow: 0 40px 90px rgba(10, 10, 7, 0.5);
+}
+.pdf-viewer.enlarged .pdf-stage {
+  height: auto;
+  flex: 1;
+}
+body.pdf-enlarged::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 7, 0.8);
+  z-index: 1590;
 }
 
 /* ------------------------------------------------------------
