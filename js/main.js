@@ -228,6 +228,96 @@
     });
   }
 
+  /* ---------- My Stories: cards load once the whole frame is on screen ---------- */
+  var storyCards = Array.prototype.slice.call(document.querySelectorAll(".story-card"));
+  if (storyCards.length) {
+    storyCards.forEach(function (c, i) { c.style.setProperty("--d", (i % 2 ? 0.14 : 0) + "s"); });
+    if (reduceMotion) {
+      storyCards.forEach(function (c) { c.classList.add("is-loaded"); });
+    } else {
+      var cardTick = false;
+      var checkCards = function () {
+        cardTick = false;
+        var vh = window.innerHeight;
+        storyCards = storyCards.filter(function (c) {
+          var r = c.getBoundingClientRect();
+          /* Taller-than-screen cards can never be fully framed, so they load
+             once they fill most of the viewport. Cards already scrolled past
+             load too, so none are left blank after a fast jump. */
+          var framed = r.height <= vh * 0.92
+            ? r.top >= 0 && r.bottom <= vh
+            : r.top <= vh * 0.08 && r.bottom >= vh * 0.6;
+          if (framed || r.bottom < 0) {
+            c.classList.add("is-loaded");
+            return false;
+          }
+          return true;
+        });
+        if (!storyCards.length) window.removeEventListener("scroll", onCardScroll);
+      };
+      var onCardScroll = function () {
+        if (!cardTick) { cardTick = true; requestAnimationFrame(checkCards); }
+      };
+      window.addEventListener("scroll", onCardScroll, { passive: true });
+      window.addEventListener("resize", onCardScroll);
+      checkCards();
+    }
+  }
+
+  /* ---------- Chapters: sticky counter follows the chapter at mid-screen ---------- */
+  var chWrap = document.querySelector(".chapters-wrap");
+  if (chWrap) {
+    var chapters = chWrap.querySelectorAll(".chapter");
+    var chTick = false;
+    var updateChapter = function () {
+      chTick = false;
+      var line = window.innerHeight * 0.5;
+      var idx = 0;
+      chapters.forEach(function (c, i) {
+        if (c.getBoundingClientRect().top <= line) idx = i;
+      });
+      chWrap.style.setProperty("--i", idx);
+    };
+    window.addEventListener("scroll", function () {
+      if (!chTick) { chTick = true; requestAnimationFrame(updateChapter); }
+    }, { passive: true });
+    window.addEventListener("resize", updateChapter);
+    updateChapter();
+  }
+
+  /* ---------- Wipe sliders: top image peels away right-to-left ---------- */
+  document.querySelectorAll("[data-wipe-slider]").forEach(function (slider, n) {
+    var slides = slider.querySelectorAll(".slide");
+    if (!slides.length) return;
+    var top = 0;
+    var arrange = function () {
+      slides.forEach(function (s, i) {
+        s.classList.toggle("is-top", i === top);
+        s.classList.toggle("is-under", slides.length > 1 && i === (top + 1) % slides.length);
+      });
+    };
+    arrange();
+    if (slides.length < 2 || reduceMotion) return;
+
+    var visible = true;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+      }).observe(slider);
+    }
+    var advance = function () {
+      if (!visible || document.hidden) return;
+      var leaving = slides[top];
+      leaving.classList.add("is-leaving");
+      setTimeout(function () {
+        leaving.classList.remove("is-leaving");
+        top = (top + 1) % slides.length;
+        arrange();
+      }, 1650);
+    };
+    setTimeout(function () { setInterval(advance, 4200); }, n * 650);
+  });
+
   /* ---------- Random polaroid rotation ---------- */
   document.querySelectorAll(".polaroid").forEach(function (p, i) {
     var r = (i % 2 === 0 ? 1 : -1) * (2 + Math.random() * 4);

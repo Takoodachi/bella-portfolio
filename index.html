@@ -8,13 +8,13 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 <div class="page-veil"></div>
 
-<header class="site-header">
+<header class="site-header on-dark">
   <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
   <nav aria-label="Primary">
     <ul class="nav-links">
@@ -55,7 +55,7 @@
       <p class="hero-kicker line-mask in-view"><span style="--delay:.2s">Portfolio — Class of 2027</span></p>
       <h1 class="hero-title">
         <span class="line-mask in-view"><span style="--delay:.35s">Bella</span></span>
-        <span class="line-mask in-view"><span class="thin" style="--delay:.5s">Duong</span></span>
+        <span class="line-mask in-view"><span class="indent" style="--delay:.5s">Duong</span></span>
       </h1>
       <!-- DRAFT COPY: replace with Bella's own tagline -->
       <p class="hero-tag line-mask in-view"><span style="--delay:.7s">Writer, tutor, and performer — telling stories that move between two languages, and building communities that help others find their voice.</span></p>
@@ -95,73 +95,191 @@
   <section class="bg-ink tight">
     <div class="container reveal" style="text-align:center;max-width:900px">
       <p class="eyebrow" style="justify-content:center">From my memoir</p>
-      <p style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.4">“It was a beautiful song, and I was the only one in the room who didn't know the lyrics.”</p>
-      <p style="margin-top:1.6rem"><a class="btn" href="writing.html">Read my writing <span class="arr">→</span></a></p>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.55">“It was a beautiful song, and I was the only one in the room who didn't know the lyrics.”</p>
+      <p style="margin-top:1.8rem"><a class="btn" href="writing.html">Read my writing <span class="arr">→</span></a></p>
     </div>
   </section>
 
-  <!-- ============ SECTION INDEX ============ -->
-  <section>
+  <!-- ============ MY STORIES ============ -->
+  <section class="stories">
     <div class="container">
-      <div class="reveal">
-        <p class="eyebrow">Explore</p>
-        <h2>The work, in five chapters</h2>
+      <h2 class="sec-title reveal">
+        <span class="st-main">My Stories</span>
+        <span class="st-sub">The moments behind the work.</span>
+      </h2>
+    </div>
+
+    <div class="stories-body">
+      <div class="stories-cards">
+        <!-- DRAFT COPY: card headlines are drafts in Bella's voice — replace with her own -->
+        <article class="story-card">
+          <a href="leadership.html#tfac">
+            <p class="st-num">My stories.01</p>
+            <div class="st-text">
+              <p class="st-role">Tutors for a Cause · Remote Tutor</p>
+              <p class="st-name"><span class="big vi">Huế</span><span>Since 8th grade</span></p>
+              <h3 class="st-head">Four years inside one small square on my screen — and the summer I finally saw beyond it.</h3>
+              <ul class="st-tags"><li>#Tutoring</li><li>#Vietnam</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/tfac/tfac-01.jpg" alt="One of Bella's students in Huế, Vietnam" loading="lazy" style="object-position:30% 50%"></p>
+          </a>
+        </article>
+        <article class="story-card">
+          <a href="about.html">
+            <p class="st-num">My stories.02</p>
+            <div class="st-text">
+              <p class="st-role">Leadership Recognition</p>
+              <p class="st-name"><span class="big">Dare</span><span>to Lead</span></p>
+              <h3 class="st-head">Called on stage for leadership, with Brené Brown's book about courage in hand.</h3>
+              <ul class="st-tags"><li>#Leadership</li><li>#Courage</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/home/home-01.jpg" alt="Bella on stage receiving a leadership award" loading="lazy" style="object-position:66% 40%"></p>
+          </a>
+        </article>
+        <article class="story-card">
+          <a href="writing.html">
+            <p class="st-num">My stories.03</p>
+            <div class="st-text">
+              <p class="st-role">The Spire · Literary Magazine</p>
+              <p class="st-name"><span class="big">Ink</span><span>Launch day</span></p>
+              <h3 class="st-head">A new issue in every hand — proof that stories are better made together.</h3>
+              <ul class="st-tags"><li>#Writing</li><li>#Editing</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/home/home-02.jpg" alt="Bella and The Spire staff holding the new issue" loading="lazy" style="object-position:60% 50%"></p>
+          </a>
+        </article>
+        <article class="story-card">
+          <a href="performing-arts.html#theater">
+            <p class="st-num">My stories.04</p>
+            <div class="st-text">
+              <p class="st-role">Theater · School Productions</p>
+              <p class="st-name"><span class="big">Stage</span><span>Ensemble</span></p>
+              <h3 class="st-head">Stepping into someone else's story, and bringing the whole room along with me.</h3>
+              <ul class="st-tags"><li>#Theater</li><li>#Musical</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/theater/theater-04.jpg" alt="Bella on stage in costume between two castmates" loading="lazy" style="object-position:50% 45%"></p>
+          </a>
+        </article>
+        <article class="story-card">
+          <a href="performing-arts.html#dance">
+            <p class="st-num">My stories.05</p>
+            <div class="st-text">
+              <p class="st-role">Dance Company</p>
+              <p class="st-name"><span class="big">Motion</span><span>Contemporary</span></p>
+              <h3 class="st-head">The one place I stop translating and let the choreography do the talking.</h3>
+              <ul class="st-tags"><li>#Dance</li><li>#Contemporary</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/dance/dance-01.jpg" alt="Bella dancing in pink stage light" loading="lazy" style="object-position:50% 30%"></p>
+          </a>
+        </article>
+        <article class="story-card">
+          <a href="leadership.html#aafc">
+            <p class="st-num">My stories.06</p>
+            <div class="st-text">
+              <p class="st-role">Asian American Footsteps Conference</p>
+              <p class="st-name"><span class="big">AAFC</span><span>2024</span></p>
+              <h3 class="st-head">A rare room where the quiet parts didn't need explaining.</h3>
+              <ul class="st-tags"><li>#Community</li><li>#Identity</li></ul>
+            </div>
+            <span class="tint"></span><span class="shade"></span>
+            <p class="img"><img src="assets/aafc/aafc-01.jpg" alt="Bella laughing with friends at the Asian American Footsteps Conference" loading="lazy" style="object-position:51% 40%"></p>
+          </a>
+        </article>
       </div>
-      <div class="index-cards">
-        <a class="index-card reveal" href="about.html">
-          <img src="assets/aafc/aafc-04.jpg" alt="" loading="lazy">
-          <span class="card-num">01</span>
-          <span class="card-body">
-            <h3>About</h3>
-            <p>Background, values, and what keeps me motivated.</p>
-            <span class="card-cta">Read more →</span>
-          </span>
-        </a>
-        <a class="index-card reveal" href="writing.html">
-          <img src="assets/tfac/tfac-10.jpg" alt="" loading="lazy">
-          <span class="card-num">02</span>
-          <span class="card-body">
-            <h3>Writing</h3>
-            <p>Memoir, flash fiction, journalism, and research.</p>
-            <span class="card-cta">Read more →</span>
-          </span>
-        </a>
-        <a class="index-card reveal" href="leadership.html">
-          <img src="assets/tfac/tfac-02.jpg" alt="" loading="lazy">
-          <span class="card-num">03</span>
-          <span class="card-body">
-            <h3>Leadership</h3>
-            <p>Tutors for a Cause, AAFC, and Special Olympics.</p>
-            <span class="card-cta">Read more →</span>
-          </span>
-        </a>
-        <a class="index-card reveal" href="performing-arts.html">
-          <img src="assets/dance/dance-01.jpg" alt="" loading="lazy">
-          <span class="card-num">04</span>
-          <span class="card-body">
-            <h3>Performing Arts</h3>
-            <p>Dance, theater, and singing — on every stage I can find.</p>
-            <span class="card-cta">Read more →</span>
-          </span>
-        </a>
-        <a class="index-card reveal" href="photography.html">
-          <img src="assets/photography/photo-01.jpg" alt="" loading="lazy">
-          <span class="card-num">05</span>
-          <span class="card-body">
-            <h3>Photography</h3>
-            <p>Selected work from my AP Photography portfolio.</p>
-            <span class="card-cta">Read more →</span>
-          </span>
-        </a>
-        <a class="index-card reveal" href="contact.html">
-          <img src="assets/aafc/aafc-01.jpg" alt="" loading="lazy">
-          <span class="card-num">06</span>
-          <span class="card-body">
-            <h3>Contact</h3>
-            <p>Let's connect — I'd love to hear from you.</p>
-            <span class="card-cta">Say hello →</span>
-          </span>
-        </a>
+
+      <div class="stories-text">
+        <!-- DRAFT COPY: the "culminating story" — replace with Bella's own words -->
+        <p class="stories-lead reveal">Different stages, one voice. Every moment here is me learning to speak up — and then making room for someone else to.</p>
+        <p class="stories-copy reveal">A tutor waiting out a frozen video call. A dancer under pink light. A castmate, an editor, a daughter translating between two languages. On their own, these are just photographs. Together, they tell the story I keep coming back to: my parents crossed an ocean believing that education could change a life, and everything I do is a way of passing that belief on.</p>
+        <div class="stories-btns reveal">
+          <a class="btn" href="about.html">About me <span class="arr">→</span></a>
+          <a class="btn solid" href="contact.html">Say hello <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHAPTERS ============ -->
+  <section class="chapters" style="padding-top:0">
+    <div class="container">
+      <h2 class="sec-title reveal">
+        <span class="st-main">Chapters</span>
+        <span class="st-sub">What I write, lead, perform, and see.</span>
+      </h2>
+
+      <div class="chapters-wrap">
+        <aside class="ch-head" aria-hidden="true">
+          <p class="ch-title"><span class="ch-title-track"><span>Writing.</span><span>Leadership &amp; Service.</span><span>Performing Arts.</span><span>Photo&shy;graphy.</span></span></p>
+          <p class="ch-num"><span>0</span><span class="win"><span class="col"><span>1</span><span>2</span><span>3</span><span>4</span></span></span></p>
+        </aside>
+
+        <div class="ch-body">
+          <!-- DRAFT COPY: chapter summaries — refine with Bella -->
+          <article class="chapter">
+            <div class="ch-head-sp"><p class="t">Writing.</p><p class="n">01</p></div>
+            <div class="ch-slider" data-wipe-slider>
+              <div class="slide"><img src="assets/tfac/tfac-11.jpg" alt="Rows of sandals left outside a classroom door in Huế" loading="lazy"></div>
+              <div class="slide"><img src="assets/tfac/tfac-04.jpg" alt="A quiet lane in Huế, Vietnam" loading="lazy"></div>
+              <div class="slide"><img src="assets/tfac/tfac-07.jpg" alt="Teachers in the Phu Hai School computer lab" loading="lazy"></div>
+            </div>
+            <h3 class="ch-label">Memoir · Flash Fiction · Journalism · Research</h3>
+            <div class="ch-text">
+              <h4>Stories that live between two languages</h4>
+              <p>From a memoir about losing my words at a family celebration, to a feature on the students I've tutored in Huế for four years, writing is how I make sense of the in-between. Here you'll find my creative work, my journalism, and my John Locke Institute essay.</p>
+            </div>
+            <div class="ch-cta"><a class="btn" href="writing.html">Read my writing <span class="arr">→</span></a></div>
+          </article>
+
+          <article class="chapter">
+            <div class="ch-head-sp"><p class="t">Leadership &amp; Service.</p><p class="n">02</p></div>
+            <div class="ch-slider" data-wipe-slider>
+              <div class="slide"><img src="assets/tfac/tfac-08.jpg" alt="Students at their monitors in the Phu Hai School computer lab" loading="lazy"></div>
+              <div class="slide"><img src="assets/aafc/aafc-05.jpg" alt="The Asian American Footsteps Conference group photo on a campus lawn" loading="lazy"></div>
+              <div class="slide"><img src="assets/aafc/aafc-02.jpg" alt="Students celebrating together at AAFC" loading="lazy"></div>
+            </div>
+            <h3 class="ch-label">Tutors for a Cause · AAFC · Special Olympics</h3>
+            <div class="ch-text">
+              <h4>Passing on what education gave me</h4>
+              <p>Since eighth grade I've tutored English to students at Phu Hai School in Huế over a shaky video connection. I've found community at the Asian American Footsteps Conference and joy volunteering at Special Olympics events — each one a way of turning what I've been given into something I can pass on.</p>
+            </div>
+            <div class="ch-cta"><a class="btn" href="leadership.html">See my leadership <span class="arr">→</span></a></div>
+          </article>
+
+          <article class="chapter">
+            <div class="ch-head-sp"><p class="t">Performing Arts.</p><p class="n">03</p></div>
+            <div class="ch-slider" data-wipe-slider>
+              <div class="slide"><img src="assets/theater/theater-09.jpg" alt="The cast mid-number in a school musical" loading="lazy"></div>
+              <div class="slide"><img src="assets/singing/singing-01.jpg" alt="The choir performing at the holiday concert" loading="lazy"></div>
+              <div class="slide"><img src="assets/theater/theater-03.jpg" alt="The full ensemble on stage under purple light" loading="lazy"></div>
+            </div>
+            <h3 class="ch-label">Dance · Theater · Singing</h3>
+            <div class="ch-text">
+              <h4>Three ways to tell a story without writing it down</h4>
+              <p>I perform with my school's dance company, on stage in our theater productions, and with the choir. Each has taught me something different — trust in the people moving beside me, presence under the lights, and how to listen harder than I sing.</p>
+            </div>
+            <div class="ch-cta"><a class="btn" href="performing-arts.html">See my performances <span class="arr">→</span></a></div>
+          </article>
+
+          <article class="chapter">
+            <div class="ch-head-sp"><p class="t">Photography.</p><p class="n">04</p></div>
+            <div class="ch-slider" data-wipe-slider>
+              <div class="slide"><img src="assets/photography/screen-05.jpg" alt="AP Photography: a field at dusk seen through textured glass" loading="lazy"></div>
+              <div class="slide"><img src="assets/photography/screen-12.jpg" alt="AP Photography: a girl with ice cream seen through painted glass" loading="lazy"></div>
+              <div class="slide"><img src="assets/photography/screen-04.jpg" alt="AP Photography: a laughing face under a sun hat, layered with texture" loading="lazy"></div>
+            </div>
+            <h3 class="ch-label">AP Photography Portfolio</h3>
+            <div class="ch-text">
+              <h4>Looking closer at the in-between</h4>
+              <p>My AP Photography portfolio layers everyday moments with texture — smeared glass, paint, and light — to make photographs about memory, thresholds, and the quiet evidence people leave behind.</p>
+            </div>
+            <div class="ch-cta"><a class="btn" href="photography.html">View the portfolio <span class="arr">→</span></a></div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -199,6 +317,6 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
