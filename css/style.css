@@ -763,33 +763,19 @@ p + p { margin-top: 1.1em; }
   overflow: hidden;
   background: var(--placeholder);
 }
-/* Two stacked curtains: a flat placeholder, and a paper panel that sweeps in
-   from the right; then both peel away to the left to reveal the photo. */
-.story-card::before,
-.story-card::after {
+/* A flat placeholder curtain that peels away to the left to reveal the photo. */
+.story-card::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 5;
   pointer-events: none;
+  background: var(--placeholder);
   clip-path: inset(0 0 0 0);
-}
-.story-card::before { background: var(--placeholder); }
-.story-card::after {
-  background: var(--paper);
-  transform: scaleX(0);
-  transform-origin: right;
-}
-.story-card.is-loaded::after {
-  transform: scaleX(1);
-  clip-path: inset(0 100% 0 0);
-  transition:
-    transform 0.4s var(--ease-out) var(--d),
-    clip-path 0.65s var(--ease-wipe) calc(var(--d) + 0.4s);
 }
 .story-card.is-loaded::before {
   clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.65s var(--ease-wipe) calc(var(--d) + 0.4s);
+  transition: clip-path 0.8s var(--ease-wipe) var(--d);
 }
 .story-card a {
   display: flex;
