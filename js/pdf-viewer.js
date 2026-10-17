@@ -65,6 +65,7 @@
   function setEnlarged(on) {
     if (on) {
       document.body.appendChild(viewer);
+      zoom = 0.8; /* fit-to-width on a full-screen stage makes the text oversized */
     } else {
       homeParent.insertBefore(viewer, homeMarker.nextSibling);
       zoom = 1; /* zoom is an enlarged-only feature; minimized always shows fit-to-width */

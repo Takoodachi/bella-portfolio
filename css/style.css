@@ -1603,13 +1603,7 @@ body.pdf-enlarged::after {
 .mag-mast span { display: block; }
 .mag-mast span:first-child { font-size: 18px; margin-bottom: 4px; }
 .mag-mast span:last-child { font-size: 38px; }
-.mag-issue { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 22px; color: rgba(244, 239, 230, 0.75); }
-.mag-cover-body { margin-top: auto; padding: 0 22px 26px; }
-.mag-cover .mag-kicker { color: #ef8a7a; font-size: 12px; }
-.mag-cover h3 { color: #fff; font-size: 34px; line-height: 1.05; margin: 4px 0 10px; }
-.mag-cover p { margin: 0; }
-.mag-cover-dek { font-size: 13px; line-height: 1.45; color: rgba(244, 239, 230, 0.85); margin-bottom: 12px !important; }
-.mag-cover .mag-by { font-size: 10px; }
+.mag-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .mag-end { justify-content: center; align-items: center; text-align: center; gap: 14px; padding: 40px 36px; }
 .mag-end .mag-mast { padding: 12px 18px 10px; }
 .mag-end .mag-mast span:first-child { font-size: 12px; }
