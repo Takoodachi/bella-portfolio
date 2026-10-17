@@ -103,7 +103,8 @@ body.is-exiting .page-veil {
   body.has-custom-cursor textarea,
   body.has-custom-cursor .polaroid,
   body.has-custom-cursor .g-item,
-  body.has-custom-cursor .video-ph {
+  body.has-custom-cursor .video-ph,
+  body.has-custom-cursor .cw-item .cw-title {
     cursor: none;
   }
   .cursor-dot, .cursor-ring {
@@ -1367,6 +1368,10 @@ p + p { margin-top: 1.1em; }
   transition: background-size 0.35s var(--ease-out);
 }
 .cw-open:hover { background-size: 100% 1px; }
+.cw-open { position: relative; }
+.cw-open::after { content: ""; position: absolute; inset: -0.8rem -1rem; }
+.cw-item .cw-title { cursor: pointer; transition: color 0.3s; }
+.cw-item .cw-title:hover { color: var(--terracotta); }
 .reader[hidden] { display: none; }
 .reader .reader-title { text-align: left; min-width: 0; font-size: 1.05rem; color: var(--ink); }
 .reader-page {

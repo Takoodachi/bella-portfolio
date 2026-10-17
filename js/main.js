@@ -154,12 +154,12 @@
     })();
 
     document.addEventListener("mouseover", function (e) {
-      if (e.target.closest("a, button, .polaroid, .g-item, .video-ph")) {
+      if (e.target.closest("a, button, .polaroid, .g-item, .video-ph, .cw-item .cw-title")) {
         document.body.classList.add("cursor-hover");
       }
     });
     document.addEventListener("mouseout", function (e) {
-      if (e.target.closest("a, button, .polaroid, .g-item, .video-ph")) {
+      if (e.target.closest("a, button, .polaroid, .g-item, .video-ph, .cw-item .cw-title")) {
         document.body.classList.remove("cursor-hover");
       }
     });
@@ -349,6 +349,8 @@
     };
 
     document.querySelectorAll("[data-piece]").forEach(function (btn) {
+      /* The title is a second, mouse-only way in; the button stays the single keyboard stop. */
+      btn.closest(".cw-item").querySelector(".cw-title").addEventListener("click", function () { btn.click(); });
       btn.addEventListener("click", function () {
         var item = btn.closest(".cw-item");
         var title = item.querySelector(".cw-title");
