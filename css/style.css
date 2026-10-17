@@ -1454,10 +1454,13 @@ p + p { margin-top: 1.1em; }
 }
 .pdf-stage {
   overflow: auto;
+  /* Reserve the scrollbar's width up front so the fit-to-width page doesn't overflow once it appears */
+  scrollbar-gutter: stable;
   height: clamp(420px, 62vh, 620px);
   background: var(--bg-alt);
   padding: 1rem;
 }
+.pdf-viewer:not(.enlarged) .pdf-stage { overflow-x: hidden; }
 .pdf-stage canvas {
   display: block;
   margin: 0 auto;
