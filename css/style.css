@@ -1411,6 +1411,191 @@ body.pdf-enlarged::after {
 }
 
 /* ------------------------------------------------------------
+   Magazine flip-book (Writing → The Governor's Review)
+   Fixed pixel pages, scaled as a whole by js/magazine.js
+   ------------------------------------------------------------ */
+.mag { margin-top: clamp(2rem, 4vw, 3rem); outline: none; }
+.mag-stage { position: relative; }
+.mag-scale { top: 0; left: 0; transform-origin: top left; }
+.mag-book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 2400px;
+  transition: transform 0.9s var(--ease-soft);
+}
+.mag-book.is-spread.at-start { transform: translateX(-25%); }
+.mag-book.is-spread.at-end { transform: translateX(25%); }
+.mag-book:not(.is-ready) .mag-page { margin: 0 auto 1rem; max-width: 460px; }
+.leaf {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-soft);
+}
+.mag-book:not(.is-spread) .leaf { left: 0; width: 100%; }
+.leaf.flipped { transform: rotateY(-180deg); }
+.mag-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 30px 32px;
+  background: #fbfaf6;
+  color: #1d1c1a;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 12.5px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 16px 36px rgba(42, 34, 22, 0.2);
+}
+.is-ready .mag-page { position: absolute; top: 0; left: 0; }
+.mag-page.back { transform: rotateY(180deg); }
+.is-spread .mag-page.front { background-image: linear-gradient(to right, rgba(0, 0, 0, 0.09), transparent 7%); }
+.is-spread .mag-page.back { background-image: linear-gradient(to left, rgba(0, 0, 0, 0.09), transparent 7%); }
+.mag-run {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  border-bottom: 0.75px solid #1d1c1a;
+}
+.mag-run em { font-style: normal; color: #b3261e; }
+.mag-page.back .mag-run { flex-direction: row-reverse; }
+.mag-cols {
+  flex: 1;
+  min-height: 0;
+  column-count: 2;
+  column-gap: 18px;
+  column-fill: auto;
+  overflow: hidden;
+}
+.mag-book:not(.is-spread) .mag-cols { column-count: 1; }
+.mag-cols p, .mag-flow p {
+  margin: 0;
+  text-indent: 1.3em;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.mag-cols p + p, .mag-flow p + p { margin-top: 0; }
+.mag-cols .cont, .mag-cols h4 + p, .mag-flow h4 + p, .mag-cols .mag-drop, .mag-flow .mag-drop { text-indent: 0; }
+.mag-page h4 {
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0.9em 0 0.15em;
+  break-after: avoid;
+}
+.mag-titleblock {
+  column-span: all;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 0.75px solid #1d1c1a;
+}
+.mag-page .mag-kicker, .mag-flow .mag-kicker { color: #b3261e; font-size: 11px; margin: 0 0 3px; text-indent: 0; text-align: left; }
+.mag-page h3, .mag-flow h3 {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 5px;
+}
+.mag-dek { font-weight: 700; font-size: 11.5px; line-height: 1.35; text-align: left !important; text-indent: 0 !important; margin: 0 0 4px !important; }
+.mag-by { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; text-indent: 0 !important; text-align: left !important; }
+.mag-drop::first-letter { float: left; font-size: 3.4em; line-height: 0.78; padding: 0.06em 0.07em 0 0; }
+.mag-drop .sc { font-variant: small-caps; }
+.mag-endmark { color: #b3261e; font-size: 0.8em; }
+.mag-page a, .mag-flow a { color: #2457a6; text-decoration: underline; text-underline-offset: 2px; }
+.mag-cover { background: #23201c radial-gradient(circle at 80% 15%, rgba(179, 38, 30, 0.25), transparent 55%); color: #f4efe6; padding: 0; }
+.mag-mast {
+  background: #b3261e;
+  color: #fff;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding: 16px 22px 14px;
+}
+.mag-mast span { display: block; }
+.mag-mast span:first-child { font-size: 18px; margin-bottom: 4px; }
+.mag-mast span:last-child { font-size: 38px; }
+.mag-issue { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 22px; color: rgba(244, 239, 230, 0.75); }
+.mag-cover-body { margin-top: auto; padding: 0 22px 26px; }
+.mag-cover .mag-kicker { color: #ef8a7a; font-size: 12px; }
+.mag-cover h3 { color: #fff; font-size: 34px; line-height: 1.05; margin: 4px 0 10px; }
+.mag-cover p { margin: 0; }
+.mag-cover-dek { font-size: 13px; line-height: 1.45; color: rgba(244, 239, 230, 0.85); margin-bottom: 12px !important; }
+.mag-cover .mag-by { font-size: 10px; }
+.mag-end { justify-content: center; align-items: center; text-align: center; gap: 14px; padding: 40px 36px; }
+.mag-end .mag-mast { padding: 12px 18px 10px; }
+.mag-end .mag-mast span:first-child { font-size: 12px; }
+.mag-end .mag-mast span:last-child { font-size: 24px; }
+.mag-end p { margin: 0; max-width: 32ch; }
+.mag-end .mag-kicker { font-size: 12px; text-align: center; }
+.mag-orig { font-style: italic; color: #5a564f; font-size: 11.5px; }
+.mag-page .mag-link { color: #b3261e; font-weight: 700; text-decoration: none; }
+.mag-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+.mag-controls .pv-info { min-width: 9rem; }
+.pv-btn:disabled { opacity: 0.35; pointer-events: none; }
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.35s, visibility 0.35s, transform 0.35s var(--ease-out), background 0.3s, color 0.3s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--ink); color: var(--bg); }
+
+/* Honors / roles list (resume details) */
+.honors-list { list-style: none; border-top: 1px solid var(--line); }
+.honors-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.honors-list b { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 1.12rem; }
+.honors-list span { color: var(--ink-soft); text-align: right; max-width: 52ch; }
+@media (max-width: 700px) {
+  .honors-list li { flex-direction: column; gap: 0.3rem; }
+  .honors-list span { text-align: left; }
+}
+
+/* ------------------------------------------------------------
    Leadership / alternating blocks
    ------------------------------------------------------------ */
 .stat-row {

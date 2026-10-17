@@ -24,10 +24,25 @@
     setTimeout(function () { window.location.href = href; }, 420);
   });
 
+  /* Back/forward restores this page from the bfcache with the exit veil still down. */
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) document.body.classList.remove("is-exiting", "is-entering");
+  });
+
   /* ---------- Header scroll state ---------- */
   var header = document.querySelector(".site-header");
+  var toTop = document.createElement("button");
+  toTop.type = "button";
+  toTop.className = "to-top";
+  toTop.setAttribute("aria-label", "Back to top");
+  toTop.textContent = "↑";
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  document.body.appendChild(toTop);
   function onScrollHeader() {
     if (header) header.classList.toggle("scrolled", window.scrollY > 40);
+    toTop.classList.toggle("show", window.scrollY > window.innerHeight * 0.8);
   }
   window.addEventListener("scroll", onScrollHeader, { passive: true });
   onScrollHeader();
