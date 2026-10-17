@@ -374,7 +374,8 @@ p + p { margin-top: 1.1em; }
 /* Libre Baskerville has no Vietnamese glyphs; words like "Huế" set in the
    display face need a serif that does. */
 .vi,
-.story-card .st-name .big.vi { font-family: "Noto Serif", Georgia, serif; }
+.story-card .st-name .big.vi,
+.cw-title.vi { font-family: "Noto Serif", Georgia, serif; }
 
 /* Reference-style section title: huge italic word, hairline rule, italic sub on the right */
 .sec-title {
@@ -416,7 +417,8 @@ p + p { margin-top: 1.1em; }
 
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* minmax(0, …): a zoomed PDF page or wide image must not stretch its column */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
 }
@@ -1315,6 +1317,71 @@ p + p { margin-top: 1.1em; }
   background: linear-gradient(transparent, var(--bg-alt));
 }
 
+/* Creative writing index + piece reader */
+.cw-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.cw-head h2 { font-style: normal; font-size: clamp(2.4rem, 4.6vw, 3.6rem); margin: 0; }
+.cw-head p { max-width: 30ch; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; padding-top: 0.4rem; }
+.cw-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2.5rem, 6vw, 6rem);
+}
+.cw-item { border-top: 1px solid var(--line); padding: 2rem 0 2.2rem; }
+.cw-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+.cw-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 0.8rem;
+}
+.cw-desc { color: var(--ink-soft); max-width: 46ch; line-height: 1.75; }
+.cw-open {
+  margin-top: 1.3rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--terracotta);
+  cursor: pointer;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out);
+}
+.cw-open:hover { background-size: 100% 1px; }
+.reader[hidden] { display: none; }
+.reader .reader-title { text-align: left; min-width: 0; font-size: 1.05rem; color: var(--ink); }
+.reader-page {
+  max-width: 70ch;
+  margin: 0 auto;
+  background: #fff;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4.5rem);
+  box-shadow: 0 6px 22px rgba(42, 34, 22, 0.14);
+}
+.reader-page .cw-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.6rem; }
+.reader-page .prose { max-width: none; }
+@media (max-width: 768px) {
+  .cw-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* Article figure */
 .article-fig {
   margin: 2.2rem 0;
@@ -1885,7 +1952,7 @@ body.pdf-enlarged::after {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
   .grid-2 .push-down { transform: none; }
   .contact-cards { grid-template-columns: 1fr; }
   .photo-strip { grid-template-columns: 1fr 1fr; }

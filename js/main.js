@@ -333,6 +333,44 @@
     setTimeout(function () { setInterval(advance, 4200); }, n * 650);
   });
 
+  /* ---------- Piece reader (Writing) ---------- */
+  var reader = document.getElementById("reader");
+  if (reader) {
+    var readerPage = reader.querySelector(".reader-page");
+    var readerTitle = reader.querySelector(".reader-title");
+    var readerClose = reader.querySelector("[data-reader-close]");
+    var lastOpener = null;
+
+    var closeReader = function () {
+      reader.hidden = true;
+      document.body.classList.remove("pdf-enlarged");
+      document.body.style.overflow = "";
+      if (lastOpener) lastOpener.focus();
+    };
+
+    document.querySelectorAll("[data-piece]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var item = btn.closest(".cw-item");
+        var title = item.querySelector(".cw-title");
+        readerPage.innerHTML = "";
+        readerPage.appendChild(item.querySelector(".cw-meta").cloneNode(true));
+        readerPage.appendChild(title.cloneNode(true));
+        readerPage.appendChild(document.getElementById(btn.getAttribute("data-piece")).content.cloneNode(true));
+        readerTitle.textContent = title.textContent;
+        lastOpener = btn;
+        reader.hidden = false;
+        reader.querySelector(".pdf-stage").scrollTop = 0;
+        document.body.classList.add("pdf-enlarged");
+        document.body.style.overflow = "hidden";
+        readerClose.focus();
+      });
+    });
+    readerClose.addEventListener("click", closeReader);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !reader.hidden) closeReader();
+    });
+  }
+
   /* ---------- Random polaroid rotation ---------- */
   document.querySelectorAll(".polaroid").forEach(function (p, i) {
     var r = (i % 2 === 0 ? 1 : -1) * (2 + Math.random() * 4);
