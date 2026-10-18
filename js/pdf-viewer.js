@@ -54,7 +54,7 @@
     .catch(function () {
       stage.innerHTML =
         '<p style="padding:2rem;font-size:0.95rem;color:#8d887c">' +
-        'The essay could not be displayed here — use the download button to read it.</p>';
+        'This document could not be displayed here — use the download button to read it.</p>';
     });
 
   /* Reparent to <body> while enlarged so no transformed ancestor can trap the fixed box */

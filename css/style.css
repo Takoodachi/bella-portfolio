@@ -232,7 +232,7 @@ body.is-exiting .page-veil {
   transform-origin: left;
 }
 .nav-links a.active { color: var(--ink); }
-/* Contact becomes a dark pill, like the reference's ENTRY button */
+/* Résumé becomes a dark pill, like the reference's ENTRY button */
 .nav-links li:last-child a {
   background: var(--ink);
   color: var(--bg);
@@ -643,7 +643,8 @@ p + p { margin-top: 1.1em; }
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
 }
-.hero-grid h1 {
+.hero-grid h1,
+.hero-grid .contact-title {
   font-size: clamp(2.5rem, 5.6vw, 4.6rem);
   overflow-wrap: break-word;
 }
@@ -1467,6 +1468,9 @@ p + p { margin-top: 1.1em; }
   box-shadow: 0 6px 22px rgba(42, 34, 22, 0.14);
   background: #fff;
 }
+/* Résumé page: wide and tall enough to read at fit-to-width without zooming */
+.pdf-viewer-lg:not(.enlarged) { max-width: 960px; margin: 0 auto; }
+.pdf-viewer-lg .pdf-stage { height: clamp(480px, calc(100svh - 9rem), 1240px); }
 .pdf-viewer.enlarged {
   position: fixed;
   inset: clamp(0.75rem, 3vw, 2.5rem);
@@ -1803,6 +1807,17 @@ body.pdf-enlarged::after {
 /* ------------------------------------------------------------
    Contact
    ------------------------------------------------------------ */
+.resume-hero { padding-top: clamp(7.5rem, 15vh, 10rem); }
+.resume-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  max-width: 960px;
+  margin: 0 auto clamp(1.8rem, 3.5vw, 2.6rem);
+}
+.resume-head h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); line-height: 1.04; }
 .contact-hero {
   min-height: 78svh;
   display: flex;
@@ -1951,9 +1966,12 @@ body.pdf-enlarged::after {
   .ch-text h4 { flex: none; }
   .ch-text p { max-width: none; }
 }
-@media (max-width: 768px) {
+/* The long sitemap labels wrap below ~960px, so switch to the menu button there */
+@media (max-width: 1000px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
+}
+@media (max-width: 768px) {
   .grid-2 { grid-template-columns: minmax(0, 1fr); }
   .grid-2 .push-down { transform: none; }
   .contact-cards { grid-template-columns: 1fr; }

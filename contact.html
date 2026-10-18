@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Bella Duong</title>
-<meta name="description" content="Get in touch with Bella Duong.">
+<title>Résumé — Bella Duong</title>
+<meta name="description" content="Bella Duong's résumé, and how to get in touch.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 <div class="page-veil"></div>
@@ -18,12 +18,11 @@
   <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
   <nav aria-label="Primary">
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
       <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html">Leadership</a></li>
-      <li><a href="performing-arts.html">Performing Arts</a></li>
-      <li><a href="photography.html">Photography</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="leadership.html">Leadership &amp; Community</a></li>
+      <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Résumé <span aria-hidden="true">↗</span></a></li>
     </ul>
   </nav>
   <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -31,42 +30,73 @@
 
 <div class="nav-overlay">
   <ul>
-    <li style="--i:0"><a href="about.html">About</a></li>
-    <li style="--i:1"><a href="writing.html">Writing</a></li>
-    <li style="--i:2"><a href="leadership.html">Leadership</a></li>
-    <li style="--i:3"><a href="performing-arts.html">Performing Arts</a></li>
-    <li style="--i:4"><a href="photography.html">Photography</a></li>
-    <li style="--i:5"><a href="contact.html">Contact</a></li>
+    <li style="--i:0"><a href="writing.html">Writing</a></li>
+    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
+    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
+    <li style="--i:3"><a href="about.html">About</a></li>
+    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
   </ul>
 </div>
 
 <main>
 
-  <section class="contact-hero">
+  <!-- ============ RÉSUMÉ ============ -->
+  <section class="resume-hero" id="resume">
+    <div class="container">
+      <div class="resume-head">
+        <div>
+          <p class="eyebrow reveal in-view">Résumé</p>
+          <h1>
+            <span class="line-mask in-view"><span>The short</span></span>
+            <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">version</span></span>
+          </h1>
+        </div>
+        <p class="reveal in-view" style="--delay:.3s"><a class="btn jade" href="assets/docs/bella-duong-resume.pdf" target="_blank" rel="noopener">Download the résumé <span class="arr">↓</span></a></p>
+      </div>
+      <div class="reveal in-view" style="--delay:.35s">
+        <div class="pdf-viewer pdf-viewer-lg" data-pdf="assets/docs/bella-duong-resume.pdf">
+          <div class="pdf-toolbar">
+            <button class="pv-btn" data-pv="prev" aria-label="Previous page">←</button>
+            <span class="pv-info" data-pv-page>– / –</span>
+            <button class="pv-btn" data-pv="next" aria-label="Next page">→</button>
+            <span class="pv-flex"></span>
+            <button class="pv-btn" data-pv="zoom-out" aria-label="Zoom out">−</button>
+            <span class="pv-info" data-pv-zoom>100%</span>
+            <button class="pv-btn" data-pv="zoom-in" aria-label="Zoom in">+</button>
+            <button class="pv-btn" data-pv="expand" aria-label="Enlarge reader" title="Enlarge">⛶</button>
+          </div>
+          <div class="pdf-stage"><canvas aria-label="Bella Duong's résumé"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="bg-alt">
     <div class="container">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow reveal in-view">Contact</p>
-          <h1 class="contact-title">
-            <span class="line-mask in-view"><span>Let's</span></span>
-            <span class="line-mask in-view"><span class="accent" style="--delay:.15s">connect</span></span>
-          </h1>
-          <p class="lede reveal in-view" style="--delay:.3s">Whether it's about writing, tutoring, performing, or anything in between — I'd love to hear from you.</p>
+          <p class="eyebrow reveal">Contact</p>
+          <h2 class="contact-title reveal">
+            <span class="line-mask"><span>Let's</span></span>
+            <span class="line-mask"><span class="accent" style="--delay:.15s">connect</span></span>
+          </h2>
+          <p class="lede reveal" style="--delay:.3s">Whether it's about writing, tutoring, performing, or anything in between — I'd love to hear from you.</p>
         </div>
-        <figure class="hero-card reveal reveal-scale in-view" style="--delay:.4s;--hr:-2.8deg">
-          <div class="ph"><img src="assets/aafc/aafc-05.jpg" alt="Hundreds of students gathered on a lawn for the Asian American Footsteps Conference group photo"></div>
+        <figure class="hero-card reveal reveal-scale" style="--delay:.4s;--hr:-2.8deg">
+          <div class="ph"><img src="assets/aafc/aafc-05.jpg" alt="Hundreds of students gathered on a lawn for the Asian American Footsteps Conference group photo" loading="lazy"></div>
           <figcaption>community is everything ♡</figcaption>
         </figure>
       </div>
 
       <div class="contact-cards" data-stagger="0.12">
-        <a class="contact-card reveal in-view" href="mailto:belladuong2009@gmail.com" style="--delay:.45s">
+        <a class="contact-card reveal" href="mailto:belladuong2009@gmail.com">
           <p class="cc-label">Email</p>
           <p class="cc-value">belladuong2009@ gmail.com</p>
           <p class="cc-note">The best way to reach me.</p>
         </a>
         <!-- PLACEHOLDER: replace with Bella's real LinkedIn URL -->
-        <a class="contact-card reveal in-view" href="#" onclick="return false" style="--delay:.57s">
+        <a class="contact-card reveal" href="#" onclick="return false">
           <p class="cc-label">LinkedIn</p>
           <p class="cc-value">linkedin.com/in/ belladuong</p>
           <p class="cc-note">Coming soon.</p>
@@ -86,11 +116,11 @@
     <div>
       <h5>Explore</h5>
       <ul>
-        <li><a href="about.html">About</a></li>
         <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="performing-arts.html">Performing Arts</a></li>
-        <li><a href="photography.html">Photography</a></li>
+        <li><a href="leadership.html">Leadership &amp; Community</a></li>
+        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Résumé</a></li>
       </ul>
     </div>
     <div>
@@ -107,6 +137,8 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=11"></script>
+<script src="js/main.js?v=12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="js/pdf-viewer.js?v=12"></script>
 </body>
 </html>
