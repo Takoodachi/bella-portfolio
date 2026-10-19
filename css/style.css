@@ -1469,6 +1469,7 @@ p + p { margin-top: 1.1em; }
   background: #fff;
 }
 /* Résumé page: wide and tall enough to read at fit-to-width without zooming */
+.pdf-stage canvas + canvas { margin-top: 1rem; }
 .pdf-viewer-lg:not(.enlarged) { max-width: 960px; margin: 0 auto; }
 .pdf-viewer-lg .pdf-stage { height: clamp(480px, calc(100svh - 9rem), 1240px); }
 .pdf-viewer.enlarged {

@@ -15,42 +15,58 @@
   var zoomEl = viewer.querySelector("[data-pv-zoom]");
   var expandBtn = viewer.querySelector('[data-pv="expand"]');
 
+  /* data-continuous: every page stacked in one scroll instead of prev/next */
+  var continuous = viewer.hasAttribute("data-continuous");
   var pdf = null;
   var pageNum = 1;
   var zoom = 1;
   var rendering = false;
   var pending = false;
 
-  function render() {
-    if (!pdf) return;
-    if (rendering) { pending = true; return; }
-    rendering = true;
-    pdf.getPage(pageNum).then(function (p) {
+  function renderPage(num, cv) {
+    return pdf.getPage(num).then(function (p) {
       var base = p.getViewport({ scale: 1 });
       var fit = Math.max((stage.clientWidth - 32) / base.width, 0.2);
       var vp = p.getViewport({ scale: fit * zoom });
       var dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.floor(vp.width * dpr);
-      canvas.height = Math.floor(vp.height * dpr);
-      canvas.style.width = Math.floor(vp.width) + "px";
-      canvas.style.height = Math.floor(vp.height) + "px";
-      var task = p.render({
-        canvasContext: ctx,
+      cv.width = Math.floor(vp.width * dpr);
+      cv.height = Math.floor(vp.height * dpr);
+      cv.style.width = Math.floor(vp.width) + "px";
+      cv.style.height = Math.floor(vp.height) + "px";
+      return p.render({
+        canvasContext: cv === canvas ? ctx : cv.getContext("2d"),
         viewport: vp,
         transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null
-      });
-      function done() {
-        rendering = false;
-        if (pending) { pending = false; render(); }
-      }
-      task.promise.then(done, done);
-      pageEl.textContent = pageNum + " / " + pdf.numPages;
-      zoomEl.textContent = Math.round(zoom * 100) + "%";
+      }).promise;
     });
   }
 
+  function render() {
+    if (!pdf) return;
+    if (rendering) { pending = true; return; }
+    rendering = true;
+    var jobs = continuous
+      ? Array.prototype.map.call(stage.querySelectorAll("canvas"), function (cv, i) { return renderPage(i + 1, cv); })
+      : [renderPage(pageNum, canvas)];
+    function done() {
+      rendering = false;
+      if (pending) { pending = false; render(); }
+    }
+    Promise.all(jobs).then(done, done);
+    pageEl.textContent = continuous ? pdf.numPages + " pages" : pageNum + " / " + pdf.numPages;
+    zoomEl.textContent = Math.round(zoom * 100) + "%";
+  }
+
   pdfjsLib.getDocument(viewer.getAttribute("data-pdf")).promise
-    .then(function (doc) { pdf = doc; render(); })
+    .then(function (doc) {
+      pdf = doc;
+      for (var i = 2; continuous && i <= pdf.numPages; i++) {
+        var cv = canvas.cloneNode();
+        cv.setAttribute("aria-label", canvas.getAttribute("aria-label") + ", page " + i);
+        stage.appendChild(cv);
+      }
+      render();
+    })
     .catch(function () {
       stage.innerHTML =
         '<p style="padding:2rem;font-size:0.95rem;color:#8d887c">' +
@@ -92,6 +108,7 @@
   document.addEventListener("keydown", function (e) {
     if (!viewer.classList.contains("enlarged")) return;
     if (e.key === "Escape") setEnlarged(false);
+    if (continuous) return;
     if (e.key === "ArrowLeft" && pageNum > 1) { pageNum--; render(); }
     if (e.key === "ArrowRight" && pdf && pageNum < pdf.numPages) { pageNum++; render(); }
   });
