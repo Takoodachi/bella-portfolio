@@ -1,0 +1,2 @@
+# Keep the editing guides off the live site
+exclude: [README.md, CLAUDE.md]
