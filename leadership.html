@@ -23,11 +23,7 @@ data: leadership
           <div class="prose">
             {% include md.html text=t.text %}
           </div>
-          {%- if t.stats.size > 0 %}
-          <div class="stat-row">
-            {% for x in t.stats %}<div class="stat"><b>{{ x.number | escape }}</b><span>{{ x.label | escape }}</span></div>{% endfor %}
-          </div>
-          {%- endif %}
+          {% include stats.html items=t.stats %}
         </div>
         <div class="reveal reveal-right push-down">
           <div class="frame tall">{% include img.html src=t.image alt=t.alt focus=t.focus lazy=true %}</div>
@@ -79,6 +75,7 @@ data: leadership
           <div class="prose">
             {% include md.html text=a.text %}
           </div>
+          {% include stats.html items=a.stats %}
         </div>
         <div class="reveal reveal-right push-down">
           <div class="frame tall">{% include img.html src=a.image alt=a.alt focus=a.focus lazy=true %}</div>
@@ -116,6 +113,11 @@ data: leadership
           <div class="prose">
             {% include md.html text=so.text %}
           </div>
+          {% include stats.html items=so.stats %}
+          {%- assign b = so.button %}
+          {%- if b.link and b.link != "" %}
+          <p style="margin-top:1.5rem"><a class="btn jade" href="{{ b.link }}"{% if b.link contains "://" %} target="_blank" rel="noopener"{% endif %}>{{ b.label | escape }} <span class="arr">{% if b.link contains "://" %}↗{% else %}→{% endif %}</span></a></p>
+          {%- endif %}
           {% include card.html c=so.reflection attrs=' style="margin-top:2rem"' %}
         </div>
         <div class="reveal reveal-right" data-stagger="0.12">

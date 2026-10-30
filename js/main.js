@@ -379,6 +379,8 @@
         readerPage.appendChild(item.querySelector(".cw-meta").cloneNode(true));
         readerPage.appendChild(title.cloneNode(true));
         readerPage.appendChild(document.getElementById(btn.getAttribute("data-piece")).content.cloneNode(true));
+        var cover = readerPage.querySelector(".reader-cover");
+        if (cover) readerPage.insertBefore(cover, readerPage.firstChild); /* a piece's cover sits above its title */
         readerTitle.textContent = title.textContent;
         lastOpener = btn;
         reader.hidden = false;

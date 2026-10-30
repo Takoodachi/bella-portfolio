@@ -2,7 +2,7 @@
 exclude: [README.md, CLAUDE.md, tools]
 
 # Bump after changing anything in css/ or js/ so browsers fetch the new files
-assets_version: 14
+assets_version: 15
 
 # Page text is written in Markdown (by the editor at /admin); keep quotes, dashes
 # and headings exactly as typed instead of letting Kramdown "improve" them

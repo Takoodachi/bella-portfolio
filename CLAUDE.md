@@ -34,7 +34,7 @@ This repo is public and GitHub Pages serves it, so never put secrets or private 
   remove content, update the template, the data file **and** `admin/config.yml`, then run
   `python tools/check_cms.py` (it must print OK).
 - `_includes/`: `hero.html` (inner-page hero), `md.html` / `mdi.html` (Markdown → HTML; external links get
-  `target="_blank"`), `img.html`, `card.html`, `honors.html`, `video.html` (YouTube/Vimeo link → embed, else
+  `target="_blank"`), `img.html`, `card.html`, `honors.html`, `stats.html` (big-number row), `video.html` (YouTube/Vimeo link → embed, else
   a "coming soon" box), `linkedin.html` (real profile once `site.yml` has one).
 - `js/main.js` — page transitions, scroll reveals, nav, cursor, lightbox, story cards, Chapters slider,
   piece reader, back-to-top, and `markVietnamese()` (see below).

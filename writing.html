@@ -33,7 +33,7 @@ magazine: true
           <h3 class="cw-title">{{ p.title | escape }}</h3>
           <p class="cw-desc">{{ p.description | escape }}</p>
           <button class="cw-open" type="button" data-piece="piece-{{ forloop.index }}">Read the piece <span aria-hidden="true">↗</span></button>
-          <template id="piece-{{ forloop.index }}"><div class="prose">{% include md.html text=p.body drop=true %}</div></template>
+          <template id="piece-{{ forloop.index }}">{% if p.cover and p.cover != "" %}<figure class="reader-cover">{% include img.html src=p.cover alt=p.cover_alt %}{% if p.cover_caption and p.cover_caption != "" %}<figcaption>{{ p.cover_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}<div class="prose">{% include md.html text=p.body drop=true %}</div></template>
         </article>
 {%- endfor %}
       </div>

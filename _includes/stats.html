@@ -1,0 +1,6 @@
+{%- comment -%} Row of big numbers under a section's text (Leadership & Community) {%- endcomment -%}
+{%- if include.items.size > 0 %}
+          <div class="stat-row">
+            {% for x in include.items %}<div class="stat"><b>{{ x.number | escape }}</b><span>{{ x.label | escape }}</span></div>{% endfor %}
+          </div>
+{%- endif -%}

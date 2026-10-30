@@ -272,6 +272,20 @@ collections:
           modes:
           - rich_text
           - raw
+        - name: cover
+          label: Cover image
+          widget: image
+          required: false
+          hint: Optional. Shown at the top when someone opens the piece.
+        - name: cover_alt
+          label: Cover description
+          widget: string
+          required: false
+        - name: cover_caption
+          label: Cover caption
+          widget: string
+          required: false
+          hint: e.g. who designed it
         summary: '{{fields.title}} · {{fields.kind}}'
       - name: cards
         label: Cards under the pieces
@@ -747,6 +761,18 @@ collections:
         modes:
         - rich_text
         - raw
+      - name: stats
+        label: Numbers
+        widget: list
+        required: false
+        summary: '{{fields.number}} {{fields.label}}'
+        fields: &id003
+        - name: number
+          label: Number
+          widget: string
+        - name: label
+          label: Label
+          widget: string
       - name: image
         label: Photo
         widget: image
@@ -828,6 +854,24 @@ collections:
         modes:
         - rich_text
         - raw
+      - name: stats
+        label: Numbers
+        widget: list
+        required: false
+        summary: '{{fields.number}} {{fields.label}}'
+        fields: *id003
+      - name: button
+        label: Button
+        widget: object
+        fields:
+        - name: label
+          label: Button text
+          widget: string
+        - name: link
+          label: Button link
+          widget: string
+          required: false
+          hint: A page on this site or a full web address. Leave empty to hide the button.
       - name: reflection
         label: Reflection card
         widget: object
