@@ -1,0 +1,5 @@
+{%- comment -%} Optional button under a section's text; b = {label, link}. External links open in a new tab. {%- endcomment -%}
+{%- assign b = include.b -%}
+{%- if b.link and b.link != "" %}
+          <p style="margin-top:1.5rem"><a class="btn jade" href="{{ b.link }}"{% if b.link contains "://" %} target="_blank" rel="noopener"{% endif %}>{{ b.label | escape }} <span class="arr">{% if b.link contains "://" %}↗{% else %}→{% endif %}</span></a></p>
+{%- endif -%}

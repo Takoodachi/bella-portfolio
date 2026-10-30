@@ -74,17 +74,13 @@ data: photography
   {%- assign x = d.theater %}
   <section id="theater" class="bg-alt">
     <div class="container">
-      <div class="grid-2" style="align-items:start">
-        <div class="reveal reveal-left">
-          <p class="eyebrow">{{ x.eyebrow | escape }}</p>
-          <h2>{{ x.heading | escape }}</h2>
-          <div class="prose">
-            {% include md.html text=x.text %}
-          </div>
+      <div class="reveal">
+        <p class="eyebrow">{{ x.eyebrow | escape }}</p>
+        <h2>{{ x.heading | escape }}</h2>
+        <div class="prose">
+          {% include md.html text=x.text %}
         </div>
-        <div class="reveal reveal-right">
-          {% include video.html v=x.video aria="Theater performance video coming soon" %}
-        </div>
+        {% include button.html b=x.button %}
       </div>
 
       <div class="masonry" style="margin-top:clamp(2.5rem,5vw,4rem)">

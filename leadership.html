@@ -114,10 +114,7 @@ data: leadership
             {% include md.html text=so.text %}
           </div>
           {% include stats.html items=so.stats %}
-          {%- assign b = so.button %}
-          {%- if b.link and b.link != "" %}
-          <p style="margin-top:1.5rem"><a class="btn jade" href="{{ b.link }}"{% if b.link contains "://" %} target="_blank" rel="noopener"{% endif %}>{{ b.label | escape }} <span class="arr">{% if b.link contains "://" %}↗{% else %}→{% endif %}</span></a></p>
-          {%- endif %}
+          {% include button.html b=so.button %}
           {% include card.html c=so.reflection attrs=' style="margin-top:2rem"' %}
         </div>
         <div class="reveal reveal-right" data-stagger="0.12">

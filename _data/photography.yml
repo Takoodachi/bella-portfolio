@@ -101,10 +101,9 @@ theater:
   eyebrow: Category Three
   heading: Theater
   text: On stage, I get to live inside someone else's story for a while — and bring the audience with me. I've played Amy in *Little Women* and Lisa in *Mamma Mia!*, and was an ensemble member in *Pippin* on our mainstage. Theater has taught me projection, presence, and how much work hides behind a single effortless-looking scene.
-  video:
-    url: ''
-    label: Performance Video
-    note: Scene reel — coming soon
+  button:
+    label: Govs Theater on Instagram
+    link: https://www.instagram.com/govs_theater/
   photos:
   - image: /assets/theater/theater-01.jpg
     alt: Theater production photo
@@ -126,6 +125,12 @@ theater:
     focus: ''
   - image: /assets/theater/theater-10.jpg
     alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-02.jpg
+    alt: Bella in a yellow gingham dress performing in a period play
+    focus: ''
+  - image: /assets/theater/theater-06.jpg
+    alt: Bella in a dramatic two-person scene under blue stage light
     focus: ''
   nav_label: Theater
 singing:
