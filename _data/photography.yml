@@ -85,10 +85,6 @@ dance:
   eyebrow: Category Two
   heading: Dance
   text: Dance is where I stop translating. Choreography asks for honesty the way writing does — a phrase, a breath, a held moment — but the language is entirely physical. After ten years of training, I choreograph my own contemporary and lyrical pieces, and every show teaches me something new about trusting the people moving beside me.
-  video:
-    url: ''
-    label: Performance Video
-    note: Dance reel — coming soon
   photos:
   - image: /assets/dance/dance-01.jpg
     alt: Bella dancing in pink stage light
@@ -137,10 +133,6 @@ singing:
   eyebrow: Category Four
   heading: Singing
   text: In choir, no voice works alone. Singing has taught me the discipline of blend — listening harder than you sing, tuning to the people around you, and carrying your own line anyway. I was selected for our Advanced Chorus, The First, and our a cappella group, and was invited to perform alongside the Princeton Tigerlilies — Princeton's oldest all-female a cappella group, founded in 1971 — in a campus showcase. It's the closest thing I know to the "beautiful song" I once felt outside of; here, I know the lyrics.
-  video:
-    url: ''
-    label: Performance Video
-    note: Concert recording — coming soon
   photos:
   - image: /assets/singing/singing-01.jpg
     alt: Bella singing with the choir at the holiday concert

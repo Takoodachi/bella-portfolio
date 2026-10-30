@@ -65,7 +65,7 @@ This repo is public and GitHub Pages serves it, so never put secrets or private 
   copyrighted images (e.g. newspaper cartoons) stay off the site.
 - Some text is still stand-in wording written for Bella to replace (home tagline and intro, About intro,
   story-card headlines and values, the AAFC recap, the Photography & Performance hero line, artist
-  statement and performance reflections). Still missing: LinkedIn URL, performance and AAFC videos, poems,
+  statement and performance reflections). Still missing: LinkedIn URL, the AAFC highlights video (the only video slot), poems,
   The Spire link, Junior Thesis, Special Olympics photos.
 
 ## Editor sign-in (Sveltia CMS)

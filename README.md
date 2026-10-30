@@ -34,8 +34,8 @@ phone, use the up/down arrows. Numbers like "Vignette · 02" and "№ 03" update
 Flash Fiction, Vignette, Poetry…), title, short description, and full text. You can paste the text
 straight from Google Docs. The reading time is worked out for you.
 
-**Add a performance video.** Paste the YouTube or Vimeo link into the video's link field. It replaces the
-"coming soon" box and plays right on the page.
+**Add the conference video.** Leadership & Community → Asian American Footsteps Conference → Highlights
+video: paste the YouTube or Vimeo link. It replaces the "coming soon" box and plays right on the page.
 
 **Replace the résumé.** Site settings → Résumé PDF → upload the new file. **Remove your phone number and
 home address first** — the site is public.
@@ -56,7 +56,7 @@ the website's rules, makes the change, checks it, and publishes it.
 ## Still waiting for content
 
 - LinkedIn profile link
-- Performance videos (dance, theater, singing) and the Asian American Footsteps Conference highlights
+- The Asian American Footsteps Conference highlights video
 - Poems — add them as pieces with the type "Poetry", then remove the Poetry "coming soon" card
 - The link to *The Spire* (add it to The Spire card)
 - Junior Thesis on yellow journalism

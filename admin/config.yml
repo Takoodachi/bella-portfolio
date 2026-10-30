@@ -1104,21 +1104,6 @@ collections:
         modes:
         - rich_text
         - raw
-      - name: video
-        label: Performance video
-        widget: object
-        fields:
-        - name: url
-          label: YouTube or Vimeo link
-          widget: string
-          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
-          required: false
-        - name: label
-          label: Placeholder title
-          widget: string
-        - name: note
-          label: Placeholder note
-          widget: string
       - name: photos
         label: Photos
         widget: list
@@ -1201,21 +1186,6 @@ collections:
         modes:
         - rich_text
         - raw
-      - name: video
-        label: Performance video
-        widget: object
-        fields:
-        - name: url
-          label: YouTube or Vimeo link
-          widget: string
-          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
-          required: false
-        - name: label
-          label: Placeholder title
-          widget: string
-        - name: note
-          label: Placeholder note
-          widget: string
       - name: photos
         label: Photos
         widget: list

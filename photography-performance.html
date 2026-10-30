@@ -57,9 +57,6 @@ data: photography
           <div class="prose">
             {% include md.html text=x.text %}
           </div>
-          <div class="reveal reveal-scale" style="margin-top:2rem">
-            {% include video.html v=x.video aria="Dance performance video coming soon" %}
-          </div>
         </div>
         <div class="reveal reveal-right" data-stagger="0.12">
 {%- for p in x.photos %}
@@ -113,9 +110,6 @@ data: photography
           <h2>{{ x.heading | escape }}</h2>
           <div class="prose">
             {% include md.html text=x.text %}
-          </div>
-          <div class="reveal reveal-scale" style="margin-top:2rem">
-            {% include video.html v=x.video aria="Singing performance video coming soon" %}
           </div>
         </div>
       </div>
