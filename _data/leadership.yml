@@ -1,0 +1,118 @@
+# Edited through the website editor at belladuong.com/admin — see README.md
+meta:
+  title: Leadership & Community — Bella Duong
+  description: Leadership and community service — Tutors for a Cause, Asian American Footsteps Conference, and Special Olympics.
+hero:
+  eyebrow: Leadership & Community
+  title_1: Communities
+  title_2: I've helped build
+  lede: The organizations and events where I've tried to turn what education gave me into something I can pass on.
+  image: /assets/tfac/tfac-08.jpg
+  alt: Students at their monitors in the Phu Hai School computer lab in Hue, Vietnam
+  focus: ''
+  caption: the computer lab in Hue
+tfac:
+  nav_label: Tutors for a Cause
+  eyebrow: Co-President · since 2020
+  heading: Tutors for a Cause
+  text: |-
+    Tutors for a Cause is an international education nonprofit that teaches English to underserved students in Vietnam, including at Phu Hai School in Huế. I joined as a remote tutor in eighth grade; today, as Co-President, I direct an international team of 15 tutors serving more than 200 Pre-K through 7th grade students. Over shared classroom monitors and unreliable connections, our students travel to a school computer lab just to get online — and keep showing up anyway.
+
+    This past summer I went beyond the screen, interviewing my students about the physical, economic, informational, and relational obstacles between them and an education — and wrote a feature article, with photojournalism, about what I found.
+  stats:
+  - number: 5+
+    label: Years
+  - number: '15'
+    label: Tutors on my team
+  - number: 200+
+    label: Students served
+  image: /assets/tfac/tfac-03.jpg
+  alt: A Phu Hai student photographed at home in Hue
+  focus: 98% 50%
+  curriculum:
+    image: /assets/tfac/tfac-09.jpg
+    alt: Phu Hai students in their classroom
+    focus: ''
+    heading: Curriculum expansion
+    text: Working with local educators, I diagnosed the systemic obstacles in our classrooms — unreliable technology, few books at home, and students too nervous to speak up. Then I designed and compiled an original suite of gamified lesson materials to make practice feel like play and keep students engaged between sessions.
+  initiatives:
+    heading: Leadership initiatives
+    text: 'As Co-President, I''ve helped grow Tutors for a Cause from one eighth-grade volunteer into an international team of 15 tutors. I also tell our students'' stories: my feature "Beyond the Screen," photographed by Rocco Ho, is being pitched to national and diaspora outlets to raise awareness and support for the program.'
+    button: Read "Beyond the Screen"
+    image: /assets/tfac/tfac-10.jpg
+    alt: The lantern-strung courtyard of Phu Hai School in Hue, Vietnam
+    focus: ''
+  strip:
+  - image: /assets/tfac/tfac-05.jpg
+    alt: Phu Hai student portrait
+    focus: ''
+  - image: /assets/tfac/tfac-06.jpg
+    alt: Phu Hai student portrait
+    focus: ''
+  - image: /assets/tfac/tfac-11.jpg
+    alt: Rows of sandals left outside a classroom door at Phu Hai School
+    focus: ''
+  credit: Photography by Rocco Ho, Huế, Vietnam.
+aafc:
+  nav_label: AAFC
+  eyebrow: Organizer · Asian & Asian American Association
+  heading: Asian American Footsteps Conference
+  text: |-
+    As President of our school's Asian & Asian American Association, a 100+ member affinity group, I organized the regional Asian American Footsteps Conference for more than 200 students from over 20 schools — managing the programming, marketing, and logistics.
+
+    For a girl who is often "the only one from Vietnam" in the room, AAFC is the rare space where the quiet parts don't need explaining. I wanted every student who came to feel that too.
+  image: /assets/aafc/aafc-02.jpg
+  alt: Students at the Asian American Footsteps Conference
+  focus: ''
+  recap:
+    heading: Event recap
+    text: The day was full of stories that sounded like mine, from students who had turned that in-between feeling into art, activism, and leadership. I ran a dumpling workshop myself, and it became the conference's first session to sell out.
+  video:
+    url: ''
+    label: Video Highlights
+    note: Conference highlights — coming soon
+  gallery:
+  - image: /assets/aafc/aafc-01.jpg
+    alt: Friends at AAFC
+    focus: ''
+    caption: AAFC — with friends
+    tall: true
+  - image: /assets/aafc/aafc-03.jpg
+    alt: AAFC conference moment
+    focus: ''
+    caption: Workshops
+    tall: false
+  - image: /assets/aafc/aafc-04.jpg
+    alt: AAFC conference moment
+    focus: ''
+    caption: Community
+    tall: false
+special_olympics:
+  nav_label: Special Olympics
+  eyebrow: Director · fall 2026
+  heading: Special Olympics
+  text: I direct the regional Special Olympics event run by our campus's largest student-led organization, mobilizing more than 300 high school volunteers. I coordinate volunteer schedules, resources, and venue logistics, and partner with regional coaches to keep the day safe, inclusive, and high-energy for every competing athlete.
+  reflection:
+    tag: Reflection — Coming Soon
+    title: What the athletes taught me
+    text: A personal reflection on the experience, coming soon.
+    link: ''
+  cards:
+  - tag: Photos Coming Soon
+    title: Event photos
+    text: Photos from recent Special Olympics events, coming soon.
+    link: ''
+  - tag: Photos Coming Soon
+    title: With the athletes
+    text: More moments from volunteering days.
+    link: ''
+  photos: []
+more:
+  eyebrow: More ways I lead
+  items:
+  - title: Peer Advisor, Mental Health Advocacy Group
+    text: Coaching underclassmen through academic and social stress, facilitating panels that destigmatize mental health, and organizing campus wellness events.
+  - title: Captain, Varsity Girls Tennis
+    text: Two years leading warm-ups, drills, and team culture · Team MVP (2025) · ISL Sportsmanship Award (2024)
+  - title: Dorm Proctor
+    text: Peer mentor for freshman boarders, mediating roommate conflicts and organizing common-room events.

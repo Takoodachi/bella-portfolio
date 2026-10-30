@@ -1,0 +1,4 @@
+{%- comment -%} One line of Markdown (italics, bold, links) without the surrounding <p> {%- endcomment -%}
+{%- assign _h = include.text | markdownify | replace: '<a href="http', '<a target="_blank" rel="noopener" href="http' | remove: '<p>' | remove: '</p>' | strip -%}
+{%- if include.linkclass -%}{%- assign _h = _h | replace: '<a ', '<a class="link-sweep" ' -%}{%- endif -%}
+{{ _h }}

@@ -1,0 +1,149 @@
+# Edited through the website editor at belladuong.com/admin — see README.md
+meta:
+  title: Photography & Performance — Bella Duong
+  description: Photography, dance, theater, and singing — Bella Duong's AP Photography portfolio and performing arts.
+hero:
+  eyebrow: Photography & Performance
+  title_1: Through the lens,
+  title_2: on the stage
+  lede: Photography, dance, theater, and singing — four different ways of telling a story without writing it down.
+  image: /assets/theater/theater-05.jpg
+  alt: Bella and two castmates reading a book together on stage, framed by red flowers
+  focus: ''
+  caption: mid-scene, spring production ✿
+photography:
+  nav_label: Photography
+  eyebrow: Category One · Artist Statement
+  heading: Photography
+  statement: 'My photography lives in the same place my writing does: the in-between. I''m drawn to thresholds — doorways, windows, reflections, the moment before something happens — and to the quiet evidence people leave behind in a space. This portfolio explores how light and framing can hold two things at once: what a place is, and what it feels like to stand inside it.'
+scrapbook:
+  eyebrow: The Scrapbook
+  heading: All fifteen pages
+  photos:
+  - image: /assets/photography/photo-01.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide ph-lg
+  - image: /assets/photography/photo-02.jpg
+    alt: ''
+    caption: ''
+    size: ''
+  - image: /assets/photography/photo-03.jpg
+    alt: ''
+    caption: ''
+    size: ph-tall
+  - image: /assets/photography/photo-04.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide
+  - image: /assets/photography/photo-05.jpg
+    alt: ''
+    caption: ''
+    size: ''
+  - image: /assets/photography/photo-06.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide ph-lg
+  - image: /assets/photography/photo-07.jpg
+    alt: ''
+    caption: ''
+    size: ph-tall
+  - image: /assets/photography/photo-08.jpg
+    alt: ''
+    caption: ''
+    size: ''
+  - image: /assets/photography/photo-09.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide
+  - image: /assets/photography/photo-10.jpg
+    alt: ''
+    caption: ''
+    size: ph-lg
+  - image: /assets/photography/photo-11.jpg
+    alt: ''
+    caption: ''
+    size: ph-tall
+  - image: /assets/photography/photo-12.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide
+  - image: /assets/photography/photo-13.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide
+  - image: /assets/photography/photo-14.jpg
+    alt: ''
+    caption: ''
+    size: ''
+  - image: /assets/photography/photo-15.jpg
+    alt: ''
+    caption: ''
+    size: ph-wide
+  note: Click any photograph to view it full-screen.
+dance:
+  eyebrow: Category Two
+  heading: Dance
+  text: Dance is where I stop translating. Choreography asks for honesty the way writing does — a phrase, a breath, a held moment — but the language is entirely physical. After ten years of training, I choreograph my own contemporary and lyrical pieces, and every show teaches me something new about trusting the people moving beside me.
+  video:
+    url: ''
+    label: Performance Video
+    note: Dance reel — coming soon
+  photos:
+  - image: /assets/dance/dance-01.jpg
+    alt: Bella dancing in pink stage light
+    focus: ''
+  - image: /assets/dance/dance-03.jpg
+    alt: The dance company reaching upward under green light
+    focus: ''
+  nav_label: Dance
+theater:
+  eyebrow: Category Three
+  heading: Theater
+  text: On stage, I get to live inside someone else's story for a while — and bring the audience with me. I've played Amy in *Little Women* and Lisa in *Mamma Mia!*, and was an ensemble member in *Pippin* on our mainstage. Theater has taught me projection, presence, and how much work hides behind a single effortless-looking scene.
+  video:
+    url: ''
+    label: Performance Video
+    note: Scene reel — coming soon
+  photos:
+  - image: /assets/theater/theater-01.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-03.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-04.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-07.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-08.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-09.jpg
+    alt: Theater production photo
+    focus: ''
+  - image: /assets/theater/theater-10.jpg
+    alt: Theater production photo
+    focus: ''
+  nav_label: Theater
+singing:
+  eyebrow: Category Four
+  heading: Singing
+  text: In choir, no voice works alone. Singing has taught me the discipline of blend — listening harder than you sing, tuning to the people around you, and carrying your own line anyway. I was selected for our Advanced Chorus, The First, and our a cappella group, and was invited to perform alongside the Princeton Tigerlilies — Princeton's oldest all-female a cappella group, founded in 1971 — in a campus showcase. It's the closest thing I know to the "beautiful song" I once felt outside of; here, I know the lyrics.
+  video:
+    url: ''
+    label: Performance Video
+    note: Concert recording — coming soon
+  photos:
+  - image: /assets/singing/singing-01.jpg
+    alt: Bella singing with the choir at the holiday concert
+    focus: ''
+  - image: /assets/singing/singing-03.jpg
+    alt: Choir performance moment
+    focus: ''
+  - image: /assets/singing/singing-05.jpg
+    alt: Choir performance moment
+    focus: ''
+  nav_label: Singing

@@ -1,181 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Bella Duong</title>
-<meta name="description" content="About Bella Duong — background, values, interests, and motivations.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
-</head>
-<body>
-<div class="page-veil"></div>
+---
+layout: default
+data: about
+---
+{%- assign d = site.data.about %}
 
-<header class="site-header">
-  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
-  <nav aria-label="Primary">
-    <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html">Leadership &amp; Community</a></li>
-      <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</header>
-
-<div class="nav-overlay">
-  <ul>
-    <li style="--i:0"><a href="writing.html">Writing</a></li>
-    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
-    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
-    <li style="--i:3"><a href="about.html">About</a></li>
-    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-  </ul>
-</div>
-
-<main>
-
-  <section class="hero-inner">
-    <div class="container hero-grid">
-      <div>
-        <span class="hero-index" aria-hidden="true">01</span>
-        <p class="eyebrow reveal in-view">About</p>
-        <h1>
-          <span class="line-mask in-view"><span>Beyond the</span></span>
-          <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">highlight reel</span></span>
-        </h1>
-        <p class="lede reveal in-view" style="--delay:.3s">Who I am — a daughter, a tutor, a teammate, and a storyteller.</p>
-      </div>
-      <figure class="hero-card reveal reveal-scale in-view" style="--delay:.4s">
-        <div class="ph"><img src="assets/dance/dance-02.jpg" alt="Bella mid-performance with the dance company, lit in green" style="object-position:50% 25%"></div>
-        <figcaption>lost in the movement</figcaption>
-      </figure>
-    </div>
-  </section>
+{% include hero.html h=d.hero index="01" %}
 
   <!-- ============ INTRO ============ -->
   <section>
     <div class="container grid-2">
       <div class="reveal reveal-left">
-        <div class="frame tall"><img src="assets/home/home-03.jpg" alt="Bella lunging for a forehand as captain of the varsity tennis team" loading="lazy" style="object-position:40% 50%"></div>
+        <div class="frame tall">{% include img.html src=d.intro.image alt=d.intro.alt focus=d.intro.focus lazy=true %}</div>
       </div>
       <div class="reveal reveal-right">
-        <p class="eyebrow">My Story</p>
-        <h2>Rooted in two cultures</h2>
-        <!-- DRAFT COPY: intro paragraph grounded in Bella's writing — replace with her own words -->
+        <p class="eyebrow">{{ d.intro.eyebrow | escape }}</p>
+        <h2>{{ d.intro.heading | escape }}</h2>
         <div class="prose">
-          <p class="drop">I am the daughter of two Vietnamese international students who crossed an ocean believing that education could change a life. I grew up American on paper and Vietnamese in the kitchen — turning a jade bracelet around my wrist when I'm nervous, checking Hanoi's weather from a snowed-in New England dorm, and learning that the space between two languages is where my best stories live.</p>
-          <p>At The Governor's Academy in Byfield, Massachusetts, I co-founded our political and economic journal, <em>The Governor's Review</em>, edit our literary magazine, <em>The Spire</em>, and captain the varsity girls tennis team. I lead our Asian &amp; Asian American Association, and I dance, act, and sing in our performing arts program. Since eighth grade I have tutored English to students in Huế, Vietnam through Tutors for a Cause, which I now lead as Co-President — work that taught me that the quietest students are often the most courageous.</p>
-          <p>What motivates me is simple: my parents were given a chance through education, and they raised me to pass that chance on. Everything on this site — the essays, the organizations, the performances, the photographs — is a way of doing that.</p>
+          {% include md.html text=d.intro.text drop=true %}
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ MY STORIES ============ -->
+  {%- assign st = d.stories %}
   <section class="stories bg-alt">
     <div class="container">
       <h2 class="sec-title reveal">
-        <span class="st-main">My Stories</span>
-        <span class="st-sub">The moments behind the work.</span>
+        <span class="st-main">{{ st.title | escape }}</span>
+        <span class="st-sub">{{ st.subtitle | escape }}</span>
       </h2>
     </div>
 
     <div class="stories-body">
       <div class="stories-cards">
-        <!-- DRAFT COPY: card headlines are drafts in Bella's voice — replace with her own -->
+{%- for c in st.cards %}
         <article class="story-card">
-          <a href="leadership.html#tfac">
-            <p class="st-num">My stories.01</p>
+          <a href="{{ c.link }}">
+            <p class="st-num">My stories.{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p>
             <div class="st-text">
-              <p class="st-role">Tutors for a Cause · Co-President</p>
-              <p class="st-name"><span class="big vi">Huế</span><span>Since 8th grade</span></p>
-              <h3 class="st-head">Four years inside one small square on my screen — and the summer I finally saw beyond it.</h3>
-              <ul class="st-tags"><li>#Tutoring</li><li>#Vietnam</li></ul>
+              <p class="st-role">{{ c.role | escape }}</p>
+              <p class="st-name"><span class="big">{{ c.big | escape }}</span><span>{{ c.small | escape }}</span></p>
+              <h3 class="st-head">{{ c.headline | escape }}</h3>
+              <ul class="st-tags">{% for t in c.tags %}<li>#{{ t | escape }}</li>{% endfor %}</ul>
             </div>
             <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/tfac/tfac-01.jpg" alt="One of Bella's students in Huế, Vietnam" loading="lazy" style="object-position:30% 50%"></p>
+            <p class="img">{% include img.html src=c.image alt=c.alt focus=c.focus lazy=true %}</p>
           </a>
         </article>
-        <article class="story-card">
-          <a href="leadership.html">
-            <p class="st-num">My stories.02</p>
-            <div class="st-text">
-              <p class="st-role">Leadership Recognition</p>
-              <p class="st-name"><span class="big">Dare</span><span>to Lead</span></p>
-              <h3 class="st-head">Called on stage for leadership, with Brené Brown's book about courage in hand.</h3>
-              <ul class="st-tags"><li>#Leadership</li><li>#Courage</li></ul>
-            </div>
-            <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/home/home-01.jpg" alt="Bella on stage receiving a leadership award" loading="lazy" style="object-position:66% 40%"></p>
-          </a>
-        </article>
-        <article class="story-card">
-          <a href="writing.html">
-            <p class="st-num">My stories.03</p>
-            <div class="st-text">
-              <p class="st-role">The Spire · Editor</p>
-              <p class="st-name"><span class="big">Ink</span><span>Launch day</span></p>
-              <h3 class="st-head">A new issue in every hand — proof that stories are better made together.</h3>
-              <ul class="st-tags"><li>#Writing</li><li>#Editing</li></ul>
-            </div>
-            <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/home/home-02.jpg" alt="Bella and The Spire staff holding the new issue" loading="lazy" style="object-position:60% 50%"></p>
-          </a>
-        </article>
-        <article class="story-card">
-          <a href="photography-performance.html#theater">
-            <p class="st-num">My stories.04</p>
-            <div class="st-text">
-              <p class="st-role">Theater · School Productions</p>
-              <p class="st-name"><span class="big">Stage</span><span>Ensemble</span></p>
-              <h3 class="st-head">Stepping into someone else's story, and bringing the whole room along with me.</h3>
-              <ul class="st-tags"><li>#Theater</li><li>#Musical</li></ul>
-            </div>
-            <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/theater/theater-04.jpg" alt="Bella on stage in costume between two castmates" loading="lazy" style="object-position:50% 45%"></p>
-          </a>
-        </article>
-        <article class="story-card">
-          <a href="photography-performance.html#dance">
-            <p class="st-num">My stories.05</p>
-            <div class="st-text">
-              <p class="st-role">Dance Company</p>
-              <p class="st-name"><span class="big">Motion</span><span>10 years</span></p>
-              <h3 class="st-head">The one place I stop translating and let the choreography do the talking.</h3>
-              <ul class="st-tags"><li>#Dance</li><li>#Contemporary</li></ul>
-            </div>
-            <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/dance/dance-01.jpg" alt="Bella dancing in pink stage light" loading="lazy" style="object-position:50% 30%"></p>
-          </a>
-        </article>
-        <article class="story-card">
-          <a href="leadership.html#aafc">
-            <p class="st-num">My stories.06</p>
-            <div class="st-text">
-              <p class="st-role">Asian American Footsteps Conference · Organizer</p>
-              <p class="st-name"><span class="big">AAFC</span><span>2024</span></p>
-              <h3 class="st-head">200+ students from 20+ schools — and my dumpling workshop was the first session to sell out.</h3>
-              <ul class="st-tags"><li>#Community</li><li>#Identity</li></ul>
-            </div>
-            <span class="tint"></span><span class="shade"></span>
-            <p class="img"><img src="assets/aafc/aafc-01.jpg" alt="Bella laughing with friends at the Asian American Footsteps Conference" loading="lazy" style="object-position:51% 40%"></p>
-          </a>
-        </article>
+{%- endfor %}
       </div>
 
       <div class="stories-text">
-        <!-- DRAFT COPY: the "culminating story" — replace with Bella's own words -->
-        <p class="stories-lead reveal">Different stages, one voice. Every moment here is me learning to speak up — and then making room for someone else to.</p>
-        <p class="stories-copy reveal">A tutor waiting out a frozen video call. A dancer under pink light. A castmate, an editor, a daughter translating between two languages. On their own, these are just photographs. Together, they tell the story I keep coming back to: my parents crossed an ocean believing that education could change a life, and everything I do is a way of passing that belief on.</p>
+        <p class="stories-lead reveal">{% include mdi.html text=st.lead %}</p>
+        <p class="stories-copy reveal">{% include mdi.html text=st.text %}</p>
         <div class="stories-btns reveal">
-          <a class="btn" href="assets/docs/bella-duong-resume.pdf" target="_blank" rel="noopener">My resume <span class="arr">↗</span></a>
-          <a class="btn solid" href="contact.html">Say hello <span class="arr">→</span></a>
+          <a class="btn" href="{{ site.data.site.resume }}" target="_blank" rel="noopener">{{ st.resume_button | escape }} <span class="arr">↗</span></a>
+          <a class="btn solid" href="contact.html">{{ st.contact_button | escape }} <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -185,26 +66,17 @@
   <section>
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">What I care about</p>
-        <h2>Values I keep coming back to</h2>
+        <p class="eyebrow">{{ d.values.eyebrow | escape }}</p>
+        <h2>{{ d.values.heading | escape }}</h2>
       </div>
       <div class="values-grid" data-stagger="0.12">
-        <!-- DRAFT COPY: values distilled from Bella's writing — replace or refine -->
+{%- for v in d.values.items %}
         <div class="ph-card reveal">
-          <span class="tag">Value 01</span>
-          <h4>Passing it on</h4>
-          <p>Whatever education gives me, I find ways to give to someone else — a lesson my parents carried across an ocean.</p>
+          <span class="tag">Value {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <h4>{{ v.title | escape }}</h4>
+          <p>{% include mdi.html text=v.text %}</p>
         </div>
-        <div class="ph-card reveal">
-          <span class="tag">Value 02</span>
-          <h4>Courage in quiet</h4>
-          <p>My students in Huế taught me that silence is often courage gathering itself. I try to listen for it — in others and in myself.</p>
-        </div>
-        <div class="ph-card reveal">
-          <span class="tag">Value 03</span>
-          <h4>Carrying culture</h4>
-          <p>From áo dài to cà phê trứng, I write and perform to keep the recipes, names, and stories my family carried here alive.</p>
-        </div>
+{%- endfor %}
       </div>
     </div>
   </section>
@@ -212,13 +84,8 @@
   <!-- ============ RECOGNITION ============ -->
   <section class="tight" style="padding-top:0">
     <div class="container reveal">
-      <p class="eyebrow">Recognition</p>
-      <ul class="honors-list">
-        <li><b>Williams Prize</b><span>Faculty-nominated honor for members of the junior class, recognizing academic performance and resilience.</span></li>
-        <li><b>Varsity Girls Tennis</b><span>Captain for two years · Team MVP (2025) · ISL Sportsmanship Award (2024)</span></li>
-        <li><b>Writing honors</b><span>Murphy Mercer Prize for Best Prose, three Scholastic Writing Awards Honorable Mentions, and more — <a class="link-sweep" href="writing.html">see Writing</a>.</span></li>
-        <li><b>Languages</b><span>English (native) · Vietnamese (business proficient)</span></li>
-      </ul>
+      <p class="eyebrow">{{ d.recognition.eyebrow | escape }}</p>
+      {% include honors.html items=d.recognition.items %}
     </div>
   </section>
 
@@ -226,49 +93,12 @@
   <section class="bg-ink tight">
     <div class="container" style="text-align:center">
       <div class="reveal">
-        <h2 style="margin-bottom:0.8rem">Want the full picture?</h2>
-        <p style="color:rgba(238,231,217,.7);max-width:52ch;margin:0 auto 2rem">Download my resume or find me on LinkedIn.</p>
-        <!-- PLACEHOLDER: point the LinkedIn button at Bella's real profile -->
+        <h2 style="margin-bottom:0.8rem">{{ d.resume_band.heading | escape }}</h2>
+        <p style="color:rgba(238,231,217,.7);max-width:52ch;margin:0 auto 2rem">{{ d.resume_band.text | escape }}</p>
         <p style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-          <a class="btn" href="assets/docs/bella-duong-resume.pdf" target="_blank" rel="noopener">Resume (PDF) <span class="arr">↗</span></a>
-          <a class="btn" href="#" onclick="return false" title="LinkedIn coming soon">LinkedIn ↗</a>
+          <a class="btn" href="{{ site.data.site.resume }}" target="_blank" rel="noopener">{{ d.resume_band.resume_button | escape }} <span class="arr">↗</span></a>
+          {% include linkedin.html cls="btn" soon="LinkedIn coming soon" %}{{ d.resume_band.linkedin_button | escape }} ↗</a>
         </p>
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <p class="footer-name">Bella <em>Duong</em></p>
-      <p class="footer-tag">A portfolio of writing, leadership, performance, and photography.</p>
-    </div>
-    <div>
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership &amp; Community</a></li>
-        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Résumé</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Connect</h5>
-      <ul>
-        <li><a href="mailto:belladuong2009@gmail.com">Email</a></li>
-        <li><a href="contact.html">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-base">
-    <span>© 2026 Bella Duong</span>
-    <span>Designed with ♡ and jade green</span>
-  </div>
-</footer>
-
-<script src="js/main.js?v=13"></script>
-</body>
-</html>

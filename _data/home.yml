@@ -1,0 +1,94 @@
+# Edited through the website editor at belladuong.com/admin — see README.md
+meta:
+  title: Bella Duong — Portfolio
+  description: Bella Duong — student leader, writer, performer, and photographer. Personal portfolio.
+hero:
+  slides:
+  - image: /assets/home/home-03.jpg
+    alt: Bella lunging for a forehand during a varsity tennis match
+  - image: /assets/theater/theater-02.jpg
+    alt: Bella in a yellow gingham dress performing in a period play
+  - image: /assets/singing/singing-02.jpg
+    alt: Bella singing front and center with the concert choir
+  - image: /assets/theater/theater-06.jpg
+    alt: Bella in a dramatic two-person scene under blue stage light
+  kicker: Portfolio — Class of 2027
+  first_name: Bella
+  last_name: Duong
+  tagline: Writer, tutor, and performer — telling stories that move between two languages, and building communities that help others find their voice.
+  button: Meet Bella
+marquee:
+- Tutoring
+- Varsity Tennis
+- Performing Arts
+- Travel
+- Community Service
+- Family & Friends
+intro:
+  eyebrow: Hello, Xin chào
+  heading: American on paper, Vietnamese in the kitchen — a storyteller in both.
+  text: I'm Bella — a student at a New England boarding school who writes, tutors, dances, and photographs the world around her. This site gathers the work and the communities that matter most to me.
+  button: My story
+  image: /assets/singing/singing-04.jpg
+  alt: Bella singing with the chamber choir
+  focus: 92% 50%
+quote:
+  eyebrow: From my memoir
+  text: “It was a beautiful song, and I was the only one in the room who didn't know the lyrics.”
+  button: Read my writing
+chapters:
+  title: Chapters
+  subtitle: What I write, lead, perform, and see.
+  items:
+  - title: Writing.
+    label: Memoir · Flash Fiction · Journalism · Research
+    heading: Stories that live between two languages
+    text: From a memoir about losing my words at a family celebration, to a feature on the students I've tutored in Huế, writing is how I make sense of the in-between. Here you'll find my creative work, my reporting for *The Governor's Review* — the journal I co-founded — and my John Locke Institute essay.
+    button: Read my writing
+    link: writing.html
+    slides:
+    - image: /assets/tfac/tfac-11.jpg
+      alt: Rows of sandals left outside a classroom door in Huế
+    - image: /assets/tfac/tfac-04.jpg
+      alt: A quiet lane in Huế, Vietnam
+    - image: /assets/tfac/tfac-07.jpg
+      alt: Teachers in the Phu Hai School computer lab
+  - title: Leadership & Community.
+    label: Tutors for a Cause · AAFC · Special Olympics
+    heading: Passing on what education gave me
+    text: What began in eighth grade as one volunteer on a shaky video call is now a team of 15 tutors serving 200+ students in Vietnam, which I lead as Co-President of Tutors for a Cause. I also organized the regional Asian American Footsteps Conference for 200+ students from 20+ schools and direct our school's Special Olympics event — each a way of turning what I've been given into something I can pass on.
+    button: See my leadership
+    link: leadership.html
+    slides:
+    - image: /assets/tfac/tfac-08.jpg
+      alt: Students at their monitors in the Phu Hai School computer lab
+    - image: /assets/aafc/aafc-05.jpg
+      alt: The Asian American Footsteps Conference group photo on a campus lawn
+    - image: /assets/aafc/aafc-02.jpg
+      alt: Students celebrating together at AAFC
+  - title: Performing Arts.
+    label: Dance · Theater · Singing
+    heading: Three ways to tell a story without writing it down
+    text: After ten years of dance training I choreograph my own contemporary and lyrical pieces, I've played Amy in *Little Women* and Lisa in *Mamma Mia!*, and I sing with our Advanced Chorus and a cappella group. Each has taught me something different — trust in the people moving beside me, presence under the lights, and how to listen harder than I sing.
+    button: See my performances
+    link: photography-performance.html#dance
+    slides:
+    - image: /assets/theater/theater-09.jpg
+      alt: The cast mid-number in a school musical
+    - image: /assets/singing/singing-01.jpg
+      alt: The choir performing at the holiday concert
+    - image: /assets/theater/theater-03.jpg
+      alt: The full ensemble on stage under purple light
+  - title: Photo­graphy.
+    label: AP Photography Portfolio
+    heading: Looking closer at the in-between
+    text: My AP Photography portfolio layers everyday moments with texture — smeared glass, paint, and light — to make photographs about memory, thresholds, and the quiet evidence people leave behind.
+    button: View the portfolio
+    link: photography-performance.html#photography
+    slides:
+    - image: /assets/photography/screen-05.jpg
+      alt: 'AP Photography: a field at dusk seen through textured glass'
+    - image: /assets/photography/screen-12.jpg
+      alt: 'AP Photography: a girl with ice cream seen through painted glass'
+    - image: /assets/photography/screen-04.jpg
+      alt: 'AP Photography: a laughing face under a sun hat, layered with texture'

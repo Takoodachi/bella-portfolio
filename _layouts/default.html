@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign d = site.data[page.data] %}
+<title>{{ d.meta.title | escape }}</title>
+<meta name="description" content="{{ d.meta.description | escape }}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v={{ site.assets_version }}">
+</head>
+<body>
+<div class="page-veil"></div>
+
+<header class="site-header{% if page.dark_header %} on-dark{% endif %}">
+  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
+  <nav aria-label="Primary">
+    <ul class="nav-links">
+{%- for item in site.data.nav %}
+      <li><a href="{{ item.url }}"{% if item.url == page.name %} class="active"{% endif %}>{{ item.label }}{% if item.arrow %} <span aria-hidden="true">↗</span>{% endif %}</a></li>
+{%- endfor %}
+    </ul>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<div class="nav-overlay">
+  <ul>
+{%- for item in site.data.nav %}
+    <li style="--i:{{ forloop.index0 }}"><a href="{{ item.url }}">{{ item.label }}{% if item.arrow %} <span aria-hidden="true">↗</span>{% endif %}</a></li>
+{%- endfor %}
+  </ul>
+</div>
+
+<main>
+{{ content }}
+</main>
+
+{%- assign s = site.data.site %}
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-name">Bella <em>Duong</em></p>
+      <p class="footer-tag">{{ s.footer_tagline | escape }}</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+{%- for item in site.data.nav %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+{%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="mailto:{{ s.email }}">Email</a></li>
+        <li>{% include linkedin.html fallback="contact.html" %}LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>{{ s.copyright | escape }}</span>
+    <span>{{ s.credit | escape }}</span>
+  </div>
+</footer>
+
+<script src="js/main.js?v={{ site.assets_version }}"></script>
+{%- if page.pdf_viewer %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="js/pdf-viewer.js?v={{ site.assets_version }}"></script>
+{%- endif %}
+{%- if page.magazine %}
+<script src="js/magazine.js?v={{ site.assets_version }}"></script>
+{%- endif %}
+</body>
+</html>

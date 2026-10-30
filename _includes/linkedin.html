@@ -1,0 +1,3 @@
+{%- comment -%} Opening <a> for LinkedIn: the real profile once site.yml has one, else a placeholder {%- endcomment -%}
+{%- assign _li = site.data.site.linkedin | strip -%}
+<a{% if include.cls %} class="{{ include.cls }}"{% endif %}{% if _li != "" %} href="{{ _li }}" target="_blank" rel="noopener"{% elsif include.fallback %} href="{{ include.fallback }}"{% else %} href="#" onclick="return false"{% if include.soon %} title="{{ include.soon }}"{% endif %}{% endif %}>

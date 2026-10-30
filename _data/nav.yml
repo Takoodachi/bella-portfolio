@@ -1,0 +1,12 @@
+# Site map — the order and pages are part of the design, so this file is not in the editor
+- url: writing.html
+  label: Writing
+- url: leadership.html
+  label: Leadership &amp; Community
+- url: photography-performance.html
+  label: Photography &amp; Performance
+- url: about.html
+  label: About
+- url: contact.html
+  label: Résumé
+  arrow: true

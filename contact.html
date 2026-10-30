@@ -1,60 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Résumé — Bella Duong</title>
-<meta name="description" content="Bella Duong's résumé, and how to get in touch.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
-</head>
-<body>
-<div class="page-veil"></div>
-
-<header class="site-header">
-  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
-  <nav aria-label="Primary">
-    <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html">Leadership &amp; Community</a></li>
-      <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Résumé <span aria-hidden="true">↗</span></a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</header>
-
-<div class="nav-overlay">
-  <ul>
-    <li style="--i:0"><a href="writing.html">Writing</a></li>
-    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
-    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
-    <li style="--i:3"><a href="about.html">About</a></li>
-    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-  </ul>
-</div>
-
-<main>
+---
+layout: default
+data: resume
+pdf_viewer: true
+---
+{%- assign d = site.data.resume %}
+{%- assign s = site.data.site %}
 
   <!-- ============ RÉSUMÉ ============ -->
   <section class="resume-hero" id="resume">
     <div class="container">
       <div class="resume-head">
         <div>
-          <p class="eyebrow reveal in-view">Résumé</p>
+          <p class="eyebrow reveal in-view">{{ d.resume.eyebrow | escape }}</p>
           <h1>
-            <span class="line-mask in-view"><span>My story,</span></span>
-            <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">at a glance</span></span>
+            <span class="line-mask in-view"><span>{{ d.resume.title_1 | escape }}</span></span>
+            <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">{{ d.resume.title_2 | escape }}</span></span>
           </h1>
         </div>
-        <p class="reveal in-view" style="--delay:.3s"><a class="btn jade" href="assets/docs/bella-duong-resume.pdf" target="_blank" rel="noopener">Download the résumé <span class="arr">↓</span></a></p>
+        <p class="reveal in-view" style="--delay:.3s"><a class="btn jade" href="{{ s.resume }}" target="_blank" rel="noopener">{{ d.resume.button | escape }} <span class="arr">↓</span></a></p>
       </div>
       <div class="reveal in-view" style="--delay:.35s">
-        <div class="pdf-viewer pdf-viewer-lg" data-pdf="assets/docs/bella-duong-resume.pdf" data-continuous>
+        <div class="pdf-viewer pdf-viewer-lg" data-pdf="{{ s.resume }}" data-continuous>
           <div class="pdf-toolbar">
             <span class="pv-info" data-pv-page>–</span>
             <span class="pv-flex"></span>
@@ -63,80 +29,46 @@
             <button class="pv-btn" data-pv="zoom-in" aria-label="Zoom in">+</button>
             <button class="pv-btn" data-pv="expand" aria-label="Enlarge reader" title="Enlarge">⛶</button>
           </div>
-          <div class="pdf-stage"><canvas aria-label="Bella Duong's résumé"></canvas></div>
+          <div class="pdf-stage"><canvas aria-label="{{ d.resume.label | escape }}"></canvas></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
+  {%- assign c = d.contact %}
   <section id="contact" class="bg-alt">
     <div class="container">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow reveal">Contact</p>
+          <p class="eyebrow reveal">{{ c.eyebrow | escape }}</p>
           <h2 class="contact-title reveal">
-            <span class="line-mask"><span>Let's</span></span>
-            <span class="line-mask"><span class="accent" style="--delay:.15s">connect</span></span>
+            <span class="line-mask"><span>{{ c.title_1 | escape }}</span></span>
+            <span class="line-mask"><span class="accent" style="--delay:.15s">{{ c.title_2 | escape }}</span></span>
           </h2>
-          <p class="lede reveal" style="--delay:.3s">Whether it's about writing, tutoring, performing, or anything in between — I'd love to hear from you.</p>
+          <p class="lede reveal" style="--delay:.3s">{% include mdi.html text=c.lede %}</p>
         </div>
         <figure class="hero-card reveal reveal-scale" style="--delay:.4s;--hr:-2.8deg">
-          <div class="ph"><img src="assets/aafc/aafc-05.jpg" alt="Hundreds of students gathered on a lawn for the Asian American Footsteps Conference group photo" loading="lazy"></div>
-          <figcaption>community is everything ♡</figcaption>
+          <div class="ph">{% include img.html src=c.image alt=c.alt focus=c.focus lazy=true %}</div>
+          <figcaption>{{ c.caption | escape }}</figcaption>
         </figure>
       </div>
 
+      {%- assign li = s.linkedin | strip | remove_first: "https://" | remove_first: "http://" | remove_first: "www." %}
+      {%- if li == "" %}{% assign li = c.linkedin_text %}{% endif %}
+      {%- assign li_last = li | slice: -1, 1 %}
+      {%- if li_last == "/" %}{% assign n = li.size | minus: 1 %}{% assign li = li | slice: 0, n %}{% endif %}
       <div class="contact-cards" data-stagger="0.12">
-        <a class="contact-card reveal" href="mailto:belladuong2009@gmail.com">
-          <p class="cc-label">Email</p>
-          <p class="cc-value">belladuong2009@ gmail.com</p>
-          <p class="cc-note">The best way to reach me.</p>
+        <a class="contact-card reveal" href="mailto:{{ s.email }}">
+          <p class="cc-label">{{ c.email_label | escape }}</p>
+          <p class="cc-value">{{ s.email | escape | replace: "@", "@<wbr>" }}</p>
+          <p class="cc-note">{{ c.email_note | escape }}</p>
         </a>
-        <!-- PLACEHOLDER: replace with Bella's real LinkedIn URL -->
-        <a class="contact-card reveal" href="#" onclick="return false">
-          <p class="cc-label">LinkedIn</p>
-          <p class="cc-value">linkedin.com/in/ belladuong</p>
-          <p class="cc-note">Coming soon.</p>
+        {% include linkedin.html cls="contact-card reveal" %}
+          <p class="cc-label">{{ c.linkedin_label | escape }}</p>
+          <p class="cc-value">{{ li | escape | replace: "/in/", "/in/<wbr>" }}</p>
+          <p class="cc-note">{{ c.linkedin_note | escape }}</p>
         </a>
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <p class="footer-name">Bella <em>Duong</em></p>
-      <p class="footer-tag">A portfolio of writing, leadership, performance, and photography.</p>
-    </div>
-    <div>
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership &amp; Community</a></li>
-        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Résumé</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Connect</h5>
-      <ul>
-        <li><a href="mailto:belladuong2009@gmail.com">Email</a></li>
-        <li><a href="contact.html">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-base">
-    <span>© 2026 Bella Duong</span>
-    <span>Designed with ♡ and jade green</span>
-  </div>
-</footer>
-
-<script src="js/main.js?v=13"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="js/pdf-viewer.js?v=13"></script>
-</body>
-</html>

@@ -1,0 +1,19 @@
+{%- comment -%} Inner-page hero: big two-line title + tilted photo card. h = page data .hero {%- endcomment -%}
+{%- assign h = include.h -%}
+  <section class="hero-inner">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-index" aria-hidden="true">{{ include.index }}</span>
+        <p class="eyebrow reveal in-view">{{ h.eyebrow | escape }}</p>
+        <h1>
+          <span class="line-mask in-view"><span>{{ h.title_1 | escape }}</span></span>
+          <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">{{ h.title_2 | escape }}</span></span>
+        </h1>
+        <p class="lede reveal in-view" style="--delay:.3s">{% include mdi.html text=h.lede %}</p>
+      </div>
+      <figure class="hero-card reveal reveal-scale in-view" style="--delay:.4s{% if include.tilt %};--hr:{{ include.tilt }}{% endif %}">
+        <div class="ph">{% include img.html src=h.image alt=h.alt focus=h.focus %}</div>
+        <figcaption>{{ h.caption | escape }}</figcaption>
+      </figure>
+    </div>
+  </section>

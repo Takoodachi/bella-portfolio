@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "bella-portfolio",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8321"],
+      "runtimeExecutable": "C:/Program Files/Git/bin/bash.exe",
+      "runtimeArgs": ["tools/preview.sh"],
       "port": 8321
     }
   ]

@@ -1,0 +1,125 @@
+# Edited through the website editor at belladuong.com/admin — see README.md
+meta:
+  title: About — Bella Duong
+  description: About Bella Duong — background, values, interests, and motivations.
+hero:
+  eyebrow: About
+  title_1: Beyond the
+  title_2: highlight reel
+  lede: Who I am — a daughter, a tutor, a teammate, and a storyteller.
+  image: /assets/dance/dance-02.jpg
+  alt: Bella mid-performance with the dance company, lit in green
+  focus: 50% 25%
+  caption: lost in the movement
+intro:
+  image: /assets/home/home-03.jpg
+  alt: Bella lunging for a forehand as captain of the varsity tennis team
+  focus: 40% 50%
+  eyebrow: My Story
+  heading: Rooted in two cultures
+  text: |-
+    I am the daughter of two Vietnamese international students who crossed an ocean believing that education could change a life. I grew up American on paper and Vietnamese in the kitchen — turning a jade bracelet around my wrist when I'm nervous, checking Hanoi's weather from a snowed-in New England dorm, and learning that the space between two languages is where my best stories live.
+
+    At The Governor's Academy in Byfield, Massachusetts, I co-founded our political and economic journal, *The Governor's Review*, edit our literary magazine, *The Spire*, and captain the varsity girls tennis team. I lead our Asian & Asian American Association, and I dance, act, and sing in our performing arts program. Since eighth grade I have tutored English to students in Huế, Vietnam through Tutors for a Cause, which I now lead as Co-President — work that taught me that the quietest students are often the most courageous.
+
+    What motivates me is simple: my parents were given a chance through education, and they raised me to pass that chance on. Everything on this site — the essays, the organizations, the performances, the photographs — is a way of doing that.
+stories:
+  title: My Stories
+  subtitle: The moments behind the work.
+  cards:
+  - link: leadership.html#tfac
+    role: Tutors for a Cause · Co-President
+    big: Huế
+    small: Since 8th grade
+    headline: Four years inside one small square on my screen — and the summer I finally saw beyond it.
+    tags:
+    - Tutoring
+    - Vietnam
+    image: /assets/tfac/tfac-01.jpg
+    alt: One of Bella's students in Huế, Vietnam
+    focus: 30% 50%
+  - link: leadership.html
+    role: Leadership Recognition
+    big: Dare
+    small: to Lead
+    headline: Called on stage for leadership, with Brené Brown's book about courage in hand.
+    tags:
+    - Leadership
+    - Courage
+    image: /assets/home/home-01.jpg
+    alt: Bella on stage receiving a leadership award
+    focus: 66% 40%
+  - link: writing.html
+    role: The Spire · Editor
+    big: Ink
+    small: Launch day
+    headline: A new issue in every hand — proof that stories are better made together.
+    tags:
+    - Writing
+    - Editing
+    image: /assets/home/home-02.jpg
+    alt: Bella and The Spire staff holding the new issue
+    focus: 60% 50%
+  - link: photography-performance.html#theater
+    role: Theater · School Productions
+    big: Stage
+    small: Ensemble
+    headline: Stepping into someone else's story, and bringing the whole room along with me.
+    tags:
+    - Theater
+    - Musical
+    image: /assets/theater/theater-04.jpg
+    alt: Bella on stage in costume between two castmates
+    focus: 50% 45%
+  - link: photography-performance.html#dance
+    role: Dance Company
+    big: Motion
+    small: 10 years
+    headline: The one place I stop translating and let the choreography do the talking.
+    tags:
+    - Dance
+    - Contemporary
+    image: /assets/dance/dance-01.jpg
+    alt: Bella dancing in pink stage light
+    focus: 50% 30%
+  - link: leadership.html#aafc
+    role: Asian American Footsteps Conference · Organizer
+    big: AAFC
+    small: '2024'
+    headline: 200+ students from 20+ schools — and my dumpling workshop was the first session to sell out.
+    tags:
+    - Community
+    - Identity
+    image: /assets/aafc/aafc-01.jpg
+    alt: Bella laughing with friends at the Asian American Footsteps Conference
+    focus: 51% 40%
+  lead: Different stages, one voice. Every moment here is me learning to speak up — and then making room for someone else to.
+  text: 'A tutor waiting out a frozen video call. A dancer under pink light. A castmate, an editor, a daughter translating between two languages. On their own, these are just photographs. Together, they tell the story I keep coming back to: my parents crossed an ocean believing that education could change a life, and everything I do is a way of passing that belief on.'
+  resume_button: My resume
+  contact_button: Say hello
+values:
+  eyebrow: What I care about
+  heading: Values I keep coming back to
+  items:
+  - title: Passing it on
+    text: Whatever education gives me, I find ways to give to someone else — a lesson my parents carried across an ocean.
+  - title: Courage in quiet
+    text: My students in Huế taught me that silence is often courage gathering itself. I try to listen for it — in others and in myself.
+  - title: Carrying culture
+    text: From áo dài to cà phê trứng, I write and perform to keep the recipes, names, and stories my family carried here alive.
+recognition:
+  eyebrow: Recognition
+  items:
+  - title: Williams Prize
+    text: Faculty-nominated honor for members of the junior class, recognizing academic performance and resilience.
+  - title: Varsity Girls Tennis
+    text: Captain for two years · Team MVP (2025) · ISL Sportsmanship Award (2024)
+  - title: Writing honors
+    text: Murphy Mercer Prize for Best Prose, three Scholastic Writing Awards Honorable Mentions, and more — [see Writing](writing.html).
+  - title: Languages
+    text: English (native) · Vietnamese (business proficient)
+resume_band:
+  heading: Want the full picture?
+  text: Download my resume or find me on LinkedIn.
+  resume_button: Resume (PDF)
+  linkedin_button: LinkedIn

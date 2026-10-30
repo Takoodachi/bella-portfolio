@@ -1,196 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leadership &amp; Community — Bella Duong</title>
-<meta name="description" content="Leadership and community service — Tutors for a Cause, Asian American Footsteps Conference, and Special Olympics.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
-</head>
-<body>
-<div class="page-veil"></div>
+---
+layout: default
+data: leadership
+---
+{%- assign d = site.data.leadership %}
 
-<header class="site-header">
-  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
-  <nav aria-label="Primary">
-    <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html" class="active">Leadership &amp; Community</a></li>
-      <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</header>
-
-<div class="nav-overlay">
-  <ul>
-    <li style="--i:0"><a href="writing.html">Writing</a></li>
-    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
-    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
-    <li style="--i:3"><a href="about.html">About</a></li>
-    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-  </ul>
-</div>
-
-<main>
-
-  <section class="hero-inner">
-    <div class="container hero-grid">
-      <div>
-        <span class="hero-index" aria-hidden="true">03</span>
-        <p class="eyebrow reveal in-view">Leadership &amp; Community</p>
-        <h1>
-          <span class="line-mask in-view"><span>Communities</span></span>
-          <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">I've helped build</span></span>
-        </h1>
-        <p class="lede reveal in-view" style="--delay:.3s">The organizations and events where I've tried to turn what education gave me into something I can pass on.</p>
-      </div>
-      <figure class="hero-card reveal reveal-scale in-view" style="--delay:.4s">
-        <div class="ph"><img src="assets/tfac/tfac-08.jpg" alt="Students at their monitors in the Phu Hai School computer lab in Hue, Vietnam"></div>
-        <figcaption>the computer lab in Hue</figcaption>
-      </figure>
-    </div>
-  </section>
+{% include hero.html h=d.hero index="03" %}
 
   <nav class="subnav" aria-label="Leadership sections">
-    <a href="#tfac">Tutors for a Cause</a>
-    <a href="#aafc">AAFC</a>
-    <a href="#special-olympics">Special Olympics</a>
+    <a href="#tfac">{{ d.tfac.nav_label | escape }}</a>
+    <a href="#aafc">{{ d.aafc.nav_label | escape }}</a>
+    <a href="#special-olympics">{{ d.special_olympics.nav_label | escape }}</a>
   </nav>
 
   <!-- ==================== TUTORS FOR A CAUSE ==================== -->
+  {%- assign t = d.tfac %}
   <section id="tfac">
     <div class="container">
       <div class="grid-2">
         <div class="reveal reveal-left">
-          <p class="eyebrow">Co-President · since 2020</p>
-          <h2>Tutors for a Cause</h2>
+          <p class="eyebrow">{{ t.eyebrow | escape }}</p>
+          <h2>{{ t.heading | escape }}</h2>
           <div class="prose">
-            <p>Tutors for a Cause is an international education nonprofit that teaches English to underserved students in Vietnam, including at Phu Hai School in Huế. I joined as a remote tutor in eighth grade; today, as Co-President, I direct an international team of 15 tutors serving more than 200 Pre-K through 7th grade students. Over shared classroom monitors and unreliable connections, our students travel to a school computer lab just to get online — and keep showing up anyway.</p>
-            <p>This past summer I went beyond the screen, interviewing my students about the physical, economic, informational, and relational obstacles between them and an education — and wrote a feature article, with photojournalism, about what I found.</p>
+            {% include md.html text=t.text %}
           </div>
+          {%- if t.stats.size > 0 %}
           <div class="stat-row">
-            <div class="stat"><b>5+</b><span>Years</span></div>
-            <div class="stat"><b>15</b><span>Tutors on my team</span></div>
-            <div class="stat"><b>200+</b><span>Students served</span></div>
+            {% for x in t.stats %}<div class="stat"><b>{{ x.number | escape }}</b><span>{{ x.label | escape }}</span></div>{% endfor %}
           </div>
+          {%- endif %}
         </div>
         <div class="reveal reveal-right push-down">
-          <div class="frame tall"><img src="assets/tfac/tfac-03.jpg" alt="A Phu Hai student photographed at home in Hue" loading="lazy" style="object-position:98% 50%"></div>
+          <div class="frame tall">{% include img.html src=t.image alt=t.alt focus=t.focus lazy=true %}</div>
         </div>
       </div>
 
       <div class="grid-2" style="margin-top:var(--pad-section)">
         <div class="reveal reveal-left">
-          <div class="frame wide"><img src="assets/tfac/tfac-09.jpg" alt="Phu Hai students in their classroom" loading="lazy"></div>
+          <div class="frame wide">{% include img.html src=t.curriculum.image alt=t.curriculum.alt focus=t.curriculum.focus lazy=true %}</div>
         </div>
         <div class="reveal reveal-right">
-          <h3>Curriculum expansion</h3>
+          <h3>{{ t.curriculum.heading | escape }}</h3>
           <div class="prose">
-            <p>Working with local educators, I diagnosed the systemic obstacles in our classrooms — unreliable technology, few books at home, and students too nervous to speak up. Then I designed and compiled an original suite of gamified lesson materials to make practice feel like play and keep students engaged between sessions.</p>
+            {% include md.html text=t.curriculum.text %}
           </div>
         </div>
       </div>
 
       <div class="grid-2" style="margin-top:var(--pad-section)">
         <div class="reveal reveal-left" style="order:1">
-          <h3>Leadership initiatives</h3>
+          <h3>{{ t.initiatives.heading | escape }}</h3>
           <div class="prose">
-            <p>As Co-President, I've helped grow Tutors for a Cause from one eighth-grade volunteer into an international team of 15 tutors. I also tell our students' stories: my feature "Beyond the Screen," photographed by Rocco Ho, is being pitched to national and diaspora outlets to raise awareness and support for the program.</p>
+            {% include md.html text=t.initiatives.text %}
           </div>
-          <p style="margin-top:1.5rem"><a class="btn jade" href="writing.html#journalism">Read "Beyond the Screen" <span class="arr">→</span></a></p>
+          <p style="margin-top:1.5rem"><a class="btn jade" href="writing.html#journalism">{{ t.initiatives.button | escape }} <span class="arr">→</span></a></p>
         </div>
         <div class="reveal reveal-right" style="order:2">
-          <div class="frame wide"><img src="assets/tfac/tfac-10.jpg" alt="The lantern-strung courtyard of Phu Hai School in Hue, Vietnam" loading="lazy"></div>
+          <div class="frame wide">{% include img.html src=t.initiatives.image alt=t.initiatives.alt focus=t.initiatives.focus lazy=true %}</div>
         </div>
       </div>
 
       <div class="photo-strip" data-stagger="0.12">
-        <div class="frame square reveal reveal-scale"><img src="assets/tfac/tfac-05.jpg" alt="Phu Hai student portrait" loading="lazy"></div>
-        <div class="frame square reveal reveal-scale"><img src="assets/tfac/tfac-06.jpg" alt="Phu Hai student portrait" loading="lazy"></div>
-        <div class="frame square reveal reveal-scale"><img src="assets/tfac/tfac-11.jpg" alt="Rows of sandals left outside a classroom door at Phu Hai School" loading="lazy"></div>
+{%- for p in t.strip %}
+        <div class="frame square reveal reveal-scale">{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+{%- endfor %}
       </div>
-      <p class="reveal" style="font-size:0.85rem;color:var(--muted);margin-top:0.9rem">Photography by Rocco Ho, Huế, Vietnam.</p>
+      <p class="reveal" style="font-size:0.85rem;color:var(--muted);margin-top:0.9rem">{% include mdi.html text=t.credit %}</p>
     </div>
   </section>
 
   <!-- ==================== AAFC ==================== -->
+  {%- assign a = d.aafc %}
   <section id="aafc" class="bg-alt">
     <div class="container">
       <div class="grid-2">
         <div class="reveal reveal-left">
-          <p class="eyebrow">Organizer · Asian &amp; Asian American Association</p>
-          <h2>Asian American Footsteps Conference</h2>
+          <p class="eyebrow">{{ a.eyebrow | escape }}</p>
+          <h2>{{ a.heading | escape }}</h2>
           <div class="prose">
-            <p>As President of our school's Asian &amp; Asian American Association, a 100+ member affinity group, I organized the regional Asian American Footsteps Conference for more than 200 students from over 20 schools — managing the programming, marketing, and logistics.</p>
-            <p>For a girl who is often "the only one from Vietnam" in the room, AAFC is the rare space where the quiet parts don't need explaining. I wanted every student who came to feel that too.</p>
+            {% include md.html text=a.text %}
           </div>
         </div>
         <div class="reveal reveal-right push-down">
-          <div class="frame tall"><img src="assets/aafc/aafc-02.jpg" alt="Students at the Asian American Footsteps Conference" loading="lazy"></div>
+          <div class="frame tall">{% include img.html src=a.image alt=a.alt focus=a.focus lazy=true %}</div>
         </div>
       </div>
 
       <div class="grid-2" style="margin-top:var(--pad-section);align-items:start">
         <div class="reveal">
-          <h3>Event recap</h3>
-          <!-- DRAFT COPY: replace with Bella's recap of the specific year/theme -->
+          <h3>{{ a.recap.heading | escape }}</h3>
           <div class="prose">
-            <p>The day was full of stories that sounded like mine, from students who had turned that in-between feeling into art, activism, and leadership. I ran a dumpling workshop myself, and it became the conference's first session to sell out.</p>
+            {% include md.html text=a.recap.text %}
           </div>
         </div>
         <div class="reveal reveal-scale">
-          <!-- PLACEHOLDER: replace with real highlight video embed -->
-          <div class="video-ph" role="img" aria-label="AAFC video highlights coming soon">
-            <div class="play"></div>
-            <div class="vp-label">Video Highlights</div>
-            <div class="vp-note">Conference highlights — coming soon</div>
-          </div>
+          {% include video.html v=a.video aria="AAFC video highlights coming soon" %}
         </div>
       </div>
 
       <div class="photo-grid" style="margin-top:clamp(2rem,4vw,3rem)" data-stagger="0.09">
-        <div class="g-item reveal reveal-scale tall2"><img src="assets/aafc/aafc-01.jpg" alt="Friends at AAFC" loading="lazy"><span class="g-cap">AAFC — with friends</span></div>
-        <div class="g-item reveal reveal-scale"><img src="assets/aafc/aafc-03.jpg" alt="AAFC conference moment" loading="lazy"><span class="g-cap">Workshops</span></div>
-        <div class="g-item reveal reveal-scale"><img src="assets/aafc/aafc-04.jpg" alt="AAFC conference moment" loading="lazy"><span class="g-cap">Community</span></div>
+{%- for g in a.gallery %}
+        <div class="g-item reveal reveal-scale{% if g.tall %} tall2{% endif %}">{% include img.html src=g.image alt=g.alt focus=g.focus lazy=true %}<span class="g-cap">{{ g.caption | escape }}</span></div>
+{%- endfor %}
       </div>
     </div>
   </section>
 
   <!-- ==================== SPECIAL OLYMPICS ==================== -->
+  {%- assign so = d.special_olympics %}
   <section id="special-olympics">
     <div class="container">
       <div class="grid-2" style="align-items:start">
         <div class="reveal reveal-left">
-          <p class="eyebrow">Director · fall 2026</p>
-          <h2>Special Olympics</h2>
+          <p class="eyebrow">{{ so.eyebrow | escape }}</p>
+          <h2>{{ so.heading | escape }}</h2>
           <div class="prose">
-            <p>I direct the regional Special Olympics event run by our campus's largest student-led organization, mobilizing more than 300 high school volunteers. I coordinate volunteer schedules, resources, and venue logistics, and partner with regional coaches to keep the day safe, inclusive, and high-energy for every competing athlete.</p>
+            {% include md.html text=so.text %}
           </div>
-          <div style="margin-top:2rem" class="ph-card">
-            <span class="tag">Reflection — Coming Soon</span>
-            <h4>What the athletes taught me</h4>
-            <p>A personal reflection on the experience, coming soon.</p>
-          </div>
+          {% include card.html c=so.reflection attrs=' style="margin-top:2rem"' %}
         </div>
         <div class="reveal reveal-right" data-stagger="0.12">
-          <!-- PLACEHOLDER: add Special Olympics photos when available -->
-          <div class="ph-card" style="margin-bottom:1.2rem">
-            <span class="tag">Photos Coming Soon</span>
-            <h4>Event photos</h4>
-            <p>Photos from recent Special Olympics events, coming soon.</p>
-          </div>
-          <div class="ph-card">
-            <span class="tag">Photos Coming Soon</span>
-            <h4>With the athletes</h4>
-            <p>More moments from volunteering days.</p>
-          </div>
+{%- for c in so.cards %}
+          {% if forloop.last and so.photos.size == 0 %}{% include card.html c=c %}{% else %}{% include card.html c=c attrs=' style="margin-bottom:1.2rem"' %}{% endif %}
+{%- endfor %}
+{%- for p in so.photos %}
+          <figure class="article-fig"{% unless forloop.last %} style="margin-bottom:1.2rem"{% endunless %}>
+            <div class="frame wide">{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+            {%- if p.caption and p.caption != "" %}<figcaption>{{ p.caption | escape }}</figcaption>{% endif %}
+          </figure>
+{%- endfor %}
         </div>
       </div>
     </div>
@@ -199,47 +136,7 @@
   <!-- ==================== MORE LEADERSHIP ==================== -->
   <section class="bg-alt tight">
     <div class="container reveal">
-      <p class="eyebrow">More ways I lead</p>
-      <ul class="honors-list">
-        <li><b>Peer Advisor, Mental Health Advocacy Group</b><span>Coaching underclassmen through academic and social stress, facilitating panels that destigmatize mental health, and organizing campus wellness events.</span></li>
-        <li><b>Captain, Varsity Girls Tennis</b><span>Two years leading warm-ups, drills, and team culture · Team MVP (2025) · ISL Sportsmanship Award (2024)</span></li>
-        <li><b>Dorm Proctor</b><span>Peer mentor for freshman boarders, mediating roommate conflicts and organizing common-room events.</span></li>
-      </ul>
+      <p class="eyebrow">{{ d.more.eyebrow | escape }}</p>
+      {% include honors.html items=d.more.items %}
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <p class="footer-name">Bella <em>Duong</em></p>
-      <p class="footer-tag">A portfolio of writing, leadership, performance, and photography.</p>
-    </div>
-    <div>
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership &amp; Community</a></li>
-        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Résumé</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Connect</h5>
-      <ul>
-        <li><a href="mailto:belladuong2009@gmail.com">Email</a></li>
-        <li><a href="contact.html">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-base">
-    <span>© 2026 Bella Duong</span>
-    <span>Designed with ♡ and jade green</span>
-  </div>
-</footer>
-
-<script src="js/main.js?v=13"></script>
-</body>
-</html>

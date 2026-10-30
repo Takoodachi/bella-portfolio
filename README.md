@@ -1,77 +1,73 @@
 # How to update belladuong.com
 
-Everything in this folder **is** the website. When you save a change here (GitHub calls it
-"Commit changes"), belladuong.com updates by itself in 1–2 minutes. Every change is kept in the
-history, so nothing is ever lost.
+Everything on the website — every word, photo, video, and PDF — can be changed from the editor at
+**[belladuong.com/admin](https://belladuong.com/admin)**. No code needed. When you click **Save**, the
+change is published and the live site updates in about a minute. Every change is kept in the history,
+so nothing is ever lost.
 
-## Which file is which tab
+## Signing in
 
-| Tab on the site | File |
-|---|---|
-| Home | `index.html` |
-| Writing | `writing.html` |
-| Leadership & Community | `leadership.html` |
-| Photography & Performance | `photography-performance.html` |
-| About | `about.html` |
-| Résumé | `contact.html` |
+1. Go to **belladuong.com/admin** and click **Sign In with GitHub**.
+2. Approve the request the first time. (Your GitHub account needs access to this website's repository.)
 
-Photos are in the `assets` folder, sorted by section (`dance`, `theater`, `photography`, …).
-PDFs (résumé, essay) are in `assets/docs`.
+## Finding things
 
-## Swap a photo
+- **Pages** lists every tab: Home, Writing, Leadership & Community, Photography & Performance, About,
+  and Résumé. Open one and its sections appear in the order they show on the site.
+- **Site settings** holds your email, LinkedIn link, the résumé PDF, and the footer text.
+- Each page also has **Browser tab & search results** — the title in the browser tab and the sentence
+  Google shows.
 
-1. On belladuong.com, right-click the photo → **Open image in new tab**. The end of the address shows
-   its folder and name, for example `assets/dance/dance-01.jpg`.
-2. Get the new photo ready:
-   - **JPG format.** iPhone photos are often HEIC, which most browsers can't show — export or share it as JPG.
-   - **Not too big:** about 1800 pixels on the long side and under ~500 KB. The free site
-     [squoosh.app](https://squoosh.app) can resize and shrink it.
-   - **Similar shape** (landscape or portrait) to the old photo, because the frames crop to fit.
-3. Rename it to **exactly** the old name, e.g. `dance-01.jpg` (lowercase, same ending).
-4. On GitHub, open that folder (`assets` → `dance`), click **Add file → Upload files**, drag the photo in,
-   type a short note like "New dance photo", and click **Commit changes**.
-5. Wait 1–2 minutes, then reload belladuong.com with **Ctrl+Shift+R** (Mac: **Cmd+Shift+R**).
+## Common changes
 
-If the new photo shows something different, also update its description for screen readers: it's the
-`alt="…"` text next to the file name in the page file (see "Change some text" below).
+**Change a photo.** Click the photo field, then drag in a new photo (or pick one already on the site).
+Phone photos are shrunk automatically. (If an iPhone photo won't upload, export it as JPG first.) Also update the
+**Photo description** — it's read aloud to people using screen readers.
 
-## Replace the résumé
+**Photo cropped badly?** Fill in **Photo focus** with the part that should stay visible: `top`,
+`bottom`, `left`, `right`, or two percentages like `30% 50%` (across, then down).
 
-1. **Remove your phone number and home address first** — the site is public. Email is fine.
-2. Save the résumé as a PDF named exactly `bella-duong-resume.pdf`.
-3. Upload it to `assets/docs` the same way as a photo. The Résumé tab and the About page both use it.
+**Reorder things** (vignettes, gallery photos, story cards, chapters…). Drag an item by its handle. On a
+phone, use the up/down arrows. Numbers like "Vignette · 02" and "№ 03" update by themselves.
 
-## Change some text
+**Add a new piece of writing.** Writing → Creative Writing → Pieces → **Add**. Fill in the type (Memoir,
+Flash Fiction, Vignette, Poetry…), title, short description, and full text. You can paste the text
+straight from Google Docs. The reading time is worked out for you.
 
-1. On GitHub, open the page's file (see the table) and click the **pencil** (Edit).
-2. Press **Ctrl+F** (Mac: **Cmd+F**) and search for a few words of the sentence.
-3. Change only the words. Leave anything inside `<` `>` exactly as it is. Write `&amp;` instead of `&`.
-4. Click **Commit changes**.
+**Add a performance video.** Paste the YouTube or Vimeo link into the video's link field. It replaces the
+"coming soon" box and plays right on the page.
 
-You'll see notes like `<!-- DRAFT COPY -->` above some paragraphs. Those were written as stand-ins —
-rewrite them in your own words, then delete the note. `<!-- PLACEHOLDER -->` marks spots still waiting
-for content.
+**Replace the résumé.** Site settings → Résumé PDF → upload the new file. **Remove your phone number and
+home address first** — the site is public.
 
-## Bigger changes
+**Add your LinkedIn.** Site settings → LinkedIn profile link. It shows up on the Résumé page, the About
+page, and every footer.
 
-Moving or adding sections, adding videos, new pages, or anything about the layout is easiest with
-**Claude Code**: open this folder in the Code tab of the Claude desktop app and describe what you want
-in plain words — for example "Move the Singing section above Theater" or "Add my LinkedIn link".
-It reads `CLAUDE.md` for the website's rules, makes the change, checks it, and publishes it.
+**Links** can point to a page on the site (`writing.html`, or a section like `leadership.html#aafc`) or
+to any full web address.
 
-If something looks wrong after a change, ask it to "undo my last change to the website".
+## What the editor can't do
+
+Design, layout, colors, animations, moving sections between pages, or adding new kinds of sections.
+For those, open this folder in **Claude Code** (the Code tab of the Claude desktop app) and describe what
+you want in plain words — for example "Move the Singing section above Theater". It reads `CLAUDE.md` for
+the website's rules, makes the change, checks it, and publishes it.
 
 ## Still waiting for content
 
-- LinkedIn profile link (Résumé page, About page, and every page's footer)
-- Performance videos (dance, theater, singing) and the Asian American Footsteps Conference video
-- Poems for the Poetry section
-- The link to *The Spire*
+- LinkedIn profile link
+- Performance videos (dance, theater, singing) and the Asian American Footsteps Conference highlights
+- Poems — add them as pieces with the type "Poetry", then remove the Poetry "coming soon" card
+- The link to *The Spire* (add it to The Spire card)
 - Junior Thesis on yellow journalism
-- Special Olympics photos
+- Special Olympics photos (add them under Special Olympics → Photos, then remove the "coming soon" cards)
+
+Some text was written as a stand-in for your own words — the home page tagline and introduction, the About
+introduction, story cards and values, the conference recap, the artist statement, and the performance
+reflections. Rewrite them in your voice whenever you're ready.
 
 ## Your domain
 
-belladuong.com is registered at Mat Bao (matbao.net) and renews every year — keep **auto-renew** on,
-or the address stops working and someone else could buy it. Don't change its DNS records unless the
+belladuong.com is registered at Mat Bao (matbao.net) and renews every year — keep **auto-renew** on, or
+the address stops working and someone else could buy it. Don't change its DNS records unless the
 website moves to a different GitHub account (`CLAUDE.md` has the details).

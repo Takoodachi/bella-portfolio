@@ -1,0 +1,24 @@
+# Edited through the website editor at belladuong.com/admin — see README.md
+meta:
+  title: Résumé — Bella Duong
+  description: Bella Duong's résumé, and how to get in touch.
+resume:
+  eyebrow: Résumé
+  title_1: My story,
+  title_2: at a glance
+  button: Download the résumé
+  label: Bella Duong's résumé
+contact:
+  eyebrow: Contact
+  title_1: Let's
+  title_2: connect
+  lede: Whether it's about writing, tutoring, performing, or anything in between — I'd love to hear from you.
+  image: /assets/aafc/aafc-05.jpg
+  alt: Hundreds of students gathered on a lawn for the Asian American Footsteps Conference group photo
+  focus: ''
+  caption: community is everything ♡
+  email_label: Email
+  email_note: The best way to reach me.
+  linkedin_label: LinkedIn
+  linkedin_text: linkedin.com/in/belladuong
+  linkedin_note: Coming soon.

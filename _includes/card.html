@@ -1,0 +1,12 @@
+{%- comment -%} "Coming soon"-style card; becomes a link when c.link is filled in {%- endcomment -%}
+{%- assign c = include.c -%}
+{%- assign _link = c.link | strip -%}
+{%- if _link != "" -%}
+<a class="ph-card{{ include.cls }}" href="{{ _link }}"{% if _link contains "://" or _link contains ".pdf" %} target="_blank" rel="noopener"{% endif %}{{ include.attrs }}>
+{%- else -%}
+<div class="ph-card{{ include.cls }}"{{ include.attrs }}>
+{%- endif %}
+  <span class="tag">{{ c.tag | escape }}</span>
+  <h4>{{ c.title | escape }}</h4>
+  <p>{% include mdi.html text=c.text %}</p>
+{% if _link != "" %}</a>{% else %}</div>{% endif %}

@@ -1,81 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Photography &amp; Performance — Bella Duong</title>
-<meta name="description" content="Photography, dance, theater, and singing — Bella Duong's AP Photography portfolio and performing arts.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
-</head>
-<body>
-<div class="page-veil"></div>
+---
+layout: default
+data: photography
+---
+{%- assign d = site.data.photography %}
 
-<header class="site-header">
-  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
-  <nav aria-label="Primary">
-    <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html">Leadership &amp; Community</a></li>
-      <li><a href="photography-performance.html" class="active">Photography &amp; Performance</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</header>
-
-<div class="nav-overlay">
-  <ul>
-    <li style="--i:0"><a href="writing.html">Writing</a></li>
-    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
-    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
-    <li style="--i:3"><a href="about.html">About</a></li>
-    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-  </ul>
-</div>
-
-<main>
-
-  <section class="hero-inner">
-    <div class="container hero-grid">
-      <div>
-        <span class="hero-index" aria-hidden="true">04</span>
-        <p class="eyebrow reveal in-view">Photography &amp; Performance</p>
-        <h1>
-          <span class="line-mask in-view"><span>Through the lens,</span></span>
-          <span class="line-mask in-view"><span style="--delay:.15s;color:var(--jade)">on the stage</span></span>
-        </h1>
-        <!-- DRAFT COPY -->
-        <p class="lede reveal in-view" style="--delay:.3s">Photography, dance, theater, and singing — four different ways of telling a story without writing it down.</p>
-      </div>
-      <figure class="hero-card reveal reveal-scale in-view" style="--delay:.4s;--hr:-2.2deg">
-        <div class="ph"><img src="assets/theater/theater-05.jpg" alt="Bella and two castmates reading a book together on stage, framed by red flowers"></div>
-        <figcaption>mid-scene, spring production ✿</figcaption>
-      </figure>
-    </div>
-  </section>
+{% include hero.html h=d.hero index="04" tilt="-2.2deg" %}
 
   <nav class="subnav" aria-label="Photography and performance sections">
-    <a href="#photography">Photography</a>
-    <a href="#dance">Dance</a>
-    <a href="#theater">Theater</a>
-    <a href="#singing">Singing</a>
+    <a href="#photography">{{ d.photography.nav_label | escape }}</a>
+    <a href="#dance">{{ d.dance.nav_label | escape }}</a>
+    <a href="#theater">{{ d.theater.nav_label | escape }}</a>
+    <a href="#singing">{{ d.singing.nav_label | escape }}</a>
   </nav>
 
   <!-- ============ ARTIST STATEMENT ============ -->
   <section id="photography" class="tight bg-alt">
     <div class="container grid-2" style="align-items:start">
       <div class="reveal reveal-left">
-        <p class="eyebrow">Category One · Artist Statement</p>
-        <h2>Photography</h2>
+        <p class="eyebrow">{{ d.photography.eyebrow | escape }}</p>
+        <h2>{{ d.photography.heading | escape }}</h2>
       </div>
       <div class="reveal reveal-right prose">
-        <!-- DRAFT COPY: replace with Bella's real artist statement -->
-        <p>My photography lives in the same place my writing does: the in-between. I'm drawn to thresholds — doorways, windows, reflections, the moment before something happens — and to the quiet evidence people leave behind in a space. This portfolio explores how light and framing can hold two things at once: what a place is, and what it feels like to stand inside it.</p>
+        {% include md.html text=d.photography.statement %}
       </div>
     </div>
   </section>
@@ -84,200 +30,98 @@
   <section class="scrapbook scrapbook-page">
     <div class="container">
       <div class="reveal" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">The Scrapbook</p>
-        <h2>All fifteen pages</h2>
+        <p class="eyebrow" style="justify-content:center">{{ d.scrapbook.eyebrow | escape }}</p>
+        <h2>{{ d.scrapbook.heading | escape }}</h2>
       </div>
       <div class="scrapbook-grid" data-stagger="0.08">
-        <figure class="polaroid ph-wide ph-lg reveal reveal-scale" data-lightbox="assets/photography/photo-01.jpg">
-          <div class="ph"><img src="assets/photography/photo-01.jpg" alt="Photograph 1 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 01</figcaption>
+{%- for p in d.scrapbook.photos %}
+        {%- capture alt %}{% if p.alt and p.alt != "" %}{{ p.alt }}{% else %}Photograph {{ forloop.index }} from AP portfolio{% endif %}{% endcapture %}
+        <figure class="polaroid{% if p.size and p.size != "" %} {{ p.size }}{% endif %} reveal reveal-scale" data-lightbox="{{ p.image }}">
+          <div class="ph">{% include img.html src=p.image alt=alt lazy=true %}<span class="ph-num">VIEW</span></div>
+          <figcaption>{% if p.caption and p.caption != "" %}{{ p.caption | escape }}{% else %}№ {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}{% endif %}</figcaption>
         </figure>
-        <figure class="polaroid reveal reveal-scale" data-lightbox="assets/photography/photo-02.jpg">
-          <div class="ph"><img src="assets/photography/photo-02.jpg" alt="Photograph 2 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 02</figcaption>
-        </figure>
-        <figure class="polaroid ph-tall reveal reveal-scale" data-lightbox="assets/photography/photo-03.jpg">
-          <div class="ph"><img src="assets/photography/photo-03.jpg" alt="Photograph 3 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 03</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide reveal reveal-scale" data-lightbox="assets/photography/photo-04.jpg">
-          <div class="ph"><img src="assets/photography/photo-04.jpg" alt="Photograph 4 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 04</figcaption>
-        </figure>
-        <figure class="polaroid reveal reveal-scale" data-lightbox="assets/photography/photo-05.jpg">
-          <div class="ph"><img src="assets/photography/photo-05.jpg" alt="Photograph 5 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 05</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide ph-lg reveal reveal-scale" data-lightbox="assets/photography/photo-06.jpg">
-          <div class="ph"><img src="assets/photography/photo-06.jpg" alt="Photograph 6 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 06</figcaption>
-        </figure>
-        <figure class="polaroid ph-tall reveal reveal-scale" data-lightbox="assets/photography/photo-07.jpg">
-          <div class="ph"><img src="assets/photography/photo-07.jpg" alt="Photograph 7 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 07</figcaption>
-        </figure>
-        <figure class="polaroid reveal reveal-scale" data-lightbox="assets/photography/photo-08.jpg">
-          <div class="ph"><img src="assets/photography/photo-08.jpg" alt="Photograph 8 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 08</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide reveal reveal-scale" data-lightbox="assets/photography/photo-09.jpg">
-          <div class="ph"><img src="assets/photography/photo-09.jpg" alt="Photograph 9 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 09</figcaption>
-        </figure>
-        <figure class="polaroid ph-lg reveal reveal-scale" data-lightbox="assets/photography/photo-10.jpg">
-          <div class="ph"><img src="assets/photography/photo-10.jpg" alt="Photograph 10 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 10</figcaption>
-        </figure>
-        <figure class="polaroid ph-tall reveal reveal-scale" data-lightbox="assets/photography/photo-11.jpg">
-          <div class="ph"><img src="assets/photography/photo-11.jpg" alt="Photograph 11 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 11</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide reveal reveal-scale" data-lightbox="assets/photography/photo-12.jpg">
-          <div class="ph"><img src="assets/photography/photo-12.jpg" alt="Photograph 12 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 12</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide reveal reveal-scale" data-lightbox="assets/photography/photo-13.jpg">
-          <div class="ph"><img src="assets/photography/photo-13.jpg" alt="Photograph 13 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 13</figcaption>
-        </figure>
-        <figure class="polaroid reveal reveal-scale" data-lightbox="assets/photography/photo-14.jpg">
-          <div class="ph"><img src="assets/photography/photo-14.jpg" alt="Photograph 14 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 14</figcaption>
-        </figure>
-        <figure class="polaroid ph-wide reveal reveal-scale" data-lightbox="assets/photography/photo-15.jpg">
-          <div class="ph"><img src="assets/photography/photo-15.jpg" alt="Photograph 15 from AP portfolio" loading="lazy"><span class="ph-num">VIEW</span></div>
-          <figcaption>№ 15</figcaption>
-        </figure>
+{%- endfor %}
       </div>
-      <p class="reveal" style="margin-top:2.5rem;font-size:0.9rem;color:var(--muted);text-align:center">Click any photograph to view it full-screen.</p>
+      <p class="reveal" style="margin-top:2.5rem;font-size:0.9rem;color:var(--muted);text-align:center">{{ d.scrapbook.note | escape }}</p>
     </div>
   </section>
 
   <!-- ==================== DANCE ==================== -->
+  {%- assign x = d.dance %}
   <section id="dance">
     <div class="container">
       <div class="grid-2">
         <div class="reveal reveal-left">
-          <p class="eyebrow">Category Two</p>
-          <h2>Dance</h2>
-          <!-- DRAFT COPY: replace with Bella's own reflection -->
+          <p class="eyebrow">{{ x.eyebrow | escape }}</p>
+          <h2>{{ x.heading | escape }}</h2>
           <div class="prose">
-            <p>Dance is where I stop translating. Choreography asks for honesty the way writing does — a phrase, a breath, a held moment — but the language is entirely physical. After ten years of training, I choreograph my own contemporary and lyrical pieces, and every show teaches me something new about trusting the people moving beside me.</p>
+            {% include md.html text=x.text %}
           </div>
           <div class="reveal reveal-scale" style="margin-top:2rem">
-            <!-- PLACEHOLDER: replace with real performance video embed -->
-            <div class="video-ph" role="img" aria-label="Dance performance video coming soon">
-              <div class="play"></div>
-              <div class="vp-label">Performance Video</div>
-              <div class="vp-note">Dance reel — coming soon</div>
-            </div>
+            {% include video.html v=x.video aria="Dance performance video coming soon" %}
           </div>
         </div>
         <div class="reveal reveal-right" data-stagger="0.12">
-          <div class="frame tall" style="margin-bottom:1.2rem"><img src="assets/dance/dance-01.jpg" alt="Bella dancing in pink stage light" loading="lazy"></div>
-          <div class="frame square"><img src="assets/dance/dance-03.jpg" alt="The dance company reaching upward under green light" loading="lazy"></div>
+{%- for p in x.photos %}
+          <div class="frame {% if forloop.first %}tall{% else %}square{% endif %}"{% unless forloop.last %} style="margin-bottom:1.2rem"{% endunless %}>{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+{%- endfor %}
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==================== THEATER ==================== -->
+  {%- assign x = d.theater %}
   <section id="theater" class="bg-alt">
     <div class="container">
       <div class="grid-2" style="align-items:start">
         <div class="reveal reveal-left">
-          <p class="eyebrow">Category Three</p>
-          <h2>Theater</h2>
-          <!-- DRAFT COPY: replace with Bella's own reflection and production names -->
+          <p class="eyebrow">{{ x.eyebrow | escape }}</p>
+          <h2>{{ x.heading | escape }}</h2>
           <div class="prose">
-            <p>On stage, I get to live inside someone else's story for a while — and bring the audience with me. I've played Amy in <em>Little Women</em> and Lisa in <em>Mamma Mia!</em>, and was an ensemble member in <em>Pippin</em> on our mainstage. Theater has taught me projection, presence, and how much work hides behind a single effortless-looking scene.</p>
+            {% include md.html text=x.text %}
           </div>
         </div>
         <div class="reveal reveal-right">
-          <!-- PLACEHOLDER: replace with real performance video embed -->
-          <div class="video-ph" role="img" aria-label="Theater performance video coming soon">
-            <div class="play"></div>
-            <div class="vp-label">Performance Video</div>
-            <div class="vp-note">Scene reel — coming soon</div>
-          </div>
+          {% include video.html v=x.video aria="Theater performance video coming soon" %}
         </div>
       </div>
 
       <div class="masonry" style="margin-top:clamp(2.5rem,5vw,4rem)">
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-01.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-03.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-04.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-07.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-08.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-09.jpg" alt="Theater production photo" loading="lazy"></div>
-        <div class="frame reveal reveal-scale"><img src="assets/theater/theater-10.jpg" alt="Theater production photo" loading="lazy"></div>
+{%- for p in x.photos %}
+        <div class="frame reveal reveal-scale">{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+{%- endfor %}
       </div>
     </div>
   </section>
 
   <!-- ==================== SINGING ==================== -->
+  {%- assign x = d.singing %}
   <section id="singing">
     <div class="container">
       <div class="grid-2">
         <div class="reveal reveal-left push-down" data-stagger="0.12">
-          <div class="frame wide" style="margin-bottom:1.2rem"><img src="assets/singing/singing-01.jpg" alt="Bella singing with the choir at the holiday concert" loading="lazy"></div>
+{%- for p in x.photos limit:1 %}
+          <div class="frame wide" style="margin-bottom:1.2rem">{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+{%- endfor %}
+          {%- if x.photos.size > 1 %}
           <div class="photo-strip" style="grid-template-columns:1fr 1fr;margin-top:0">
-            <div class="frame square"><img src="assets/singing/singing-03.jpg" alt="Choir performance moment" loading="lazy"></div>
-            <div class="frame square"><img src="assets/singing/singing-05.jpg" alt="Choir performance moment" loading="lazy"></div>
+{%- for p in x.photos offset:1 %}
+            <div class="frame square">{% include img.html src=p.image alt=p.alt focus=p.focus lazy=true %}</div>
+{%- endfor %}
           </div>
+          {%- endif %}
         </div>
         <div class="reveal reveal-right">
-          <p class="eyebrow">Category Four</p>
-          <h2>Singing</h2>
-          <!-- DRAFT COPY: replace with Bella's own reflection and ensemble names -->
+          <p class="eyebrow">{{ x.eyebrow | escape }}</p>
+          <h2>{{ x.heading | escape }}</h2>
           <div class="prose">
-            <p>In choir, no voice works alone. Singing has taught me the discipline of blend — listening harder than you sing, tuning to the people around you, and carrying your own line anyway. I was selected for our Advanced Chorus, The First, and our a cappella group, and was invited to perform alongside the Princeton Tigerlilies — Princeton's oldest all-female a cappella group, founded in 1971 — in a campus showcase. It's the closest thing I know to the "beautiful song" I once felt outside of; here, I know the lyrics.</p>
+            {% include md.html text=x.text %}
           </div>
           <div class="reveal reveal-scale" style="margin-top:2rem">
-            <!-- PLACEHOLDER: replace with real performance video embed -->
-            <div class="video-ph" role="img" aria-label="Singing performance video coming soon">
-              <div class="play"></div>
-              <div class="vp-label">Performance Video</div>
-              <div class="vp-note">Concert recording — coming soon</div>
-            </div>
+            {% include video.html v=x.video aria="Singing performance video coming soon" %}
           </div>
         </div>
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <p class="footer-name">Bella <em>Duong</em></p>
-      <p class="footer-tag">A portfolio of writing, leadership, performance, and photography.</p>
-    </div>
-    <div>
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership &amp; Community</a></li>
-        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Résumé</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Connect</h5>
-      <ul>
-        <li><a href="mailto:belladuong2009@gmail.com">Email</a></li>
-        <li><a href="contact.html">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-base">
-    <span>© 2026 Bella Duong</span>
-    <span>Designed with ♡ and jade green</span>
-  </div>
-</footer>
-
-<script src="js/main.js?v=13"></script>
-</body>
-</html>

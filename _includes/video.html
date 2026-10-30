@@ -1,0 +1,31 @@
+{%- comment -%}
+  Performance video: paste a YouTube or Vimeo link in the editor and it is embedded;
+  until then a "coming soon" placeholder shows.
+{%- endcomment -%}
+{%- assign v = include.v -%}
+{%- assign u = v.url | strip -%}
+{%- if u != "" -%}
+  {%- assign embed = u -%}
+  {%- if u contains "youtu.be/" -%}
+    {%- assign id = u | split: "youtu.be/" | last | split: "?" | first -%}
+    {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: id -%}
+  {%- elsif u contains "youtube.com/shorts/" -%}
+    {%- assign id = u | split: "shorts/" | last | split: "?" | first -%}
+    {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: id -%}
+  {%- elsif u contains "youtube.com/watch" -%}
+    {%- assign id = u | split: "v=" | last | split: "&" | first -%}
+    {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: id -%}
+  {%- elsif u contains "player.vimeo.com" -%}
+  {%- elsif u contains "vimeo.com/" -%}
+    {%- assign parts = u | split: "vimeo.com/" | last | split: "?" | first | split: "/" -%}
+    {%- assign embed = "https://player.vimeo.com/video/" | append: parts[0] -%}
+    {%- if parts[1] -%}{%- assign embed = embed | append: "?h=" | append: parts[1] -%}{%- endif -%}
+  {%- endif -%}
+<div class="video-embed"><iframe src="{{ embed }}" title="{{ v.label | escape }}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+{%- else -%}
+<div class="video-ph" role="img" aria-label="{{ include.aria }}">
+  <div class="play"></div>
+  <div class="vp-label">{{ v.label | escape }}</div>
+  <div class="vp-note">{{ v.note | escape }}</div>
+</div>
+{%- endif -%}

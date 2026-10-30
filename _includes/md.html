@@ -1,0 +1,7 @@
+{%- comment -%}
+  Markdown paragraphs → HTML. External links open in a new tab.
+  drop=true gives the first paragraph the drop-cap class.
+{%- endcomment -%}
+{%- assign _h = include.text | markdownify | replace: '<a href="http', '<a target="_blank" rel="noopener" href="http' -%}
+{%- if include.drop -%}{%- assign _h = _h | replace_first: '<p>', '<p class="drop">' -%}{%- endif -%}
+{{ _h | strip }}

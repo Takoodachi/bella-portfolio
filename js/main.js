@@ -4,6 +4,27 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Vietnamese in display type ----------
+     Libre Baskerville has no Vietnamese glyphs, so text like "Huế" set in it is wrapped
+     in .vi (Noto Serif). Done here so words typed in the editor need no markup. */
+  var VI = /[ăđơưĩũạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  function markVietnamese(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var hits = [];
+    while (walker.nextNode()) {
+      var n = walker.currentNode, el = n.parentNode;
+      if (VI.test(n.nodeValue) && !el.closest(".vi") &&
+          getComputedStyle(el).fontFamily.indexOf("Libre Baskerville") !== -1) hits.push(n);
+    }
+    hits.forEach(function (n) {
+      var span = document.createElement("span");
+      span.className = "vi";
+      n.parentNode.replaceChild(span, n);
+      span.appendChild(n);
+    });
+  }
+  markVietnamese(document.body);
+
   /* ---------- Page enter transition ---------- */
   document.body.classList.add("is-entering");
   window.addEventListener("animationend", function (e) {
@@ -361,6 +382,7 @@
         readerTitle.textContent = title.textContent;
         lastOpener = btn;
         reader.hidden = false;
+        markVietnamese(reader);
         reader.querySelector(".pdf-stage").scrollTop = 0;
         document.body.classList.add("pdf-enlarged");
         document.body.style.overflow = "hidden";

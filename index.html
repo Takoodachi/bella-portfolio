@@ -1,65 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bella Duong — Portfolio</title>
-<meta name="description" content="Bella Duong — student leader, writer, performer, and photographer. Personal portfolio.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='74' text-anchor='middle' fill='%232f7d5f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
-</head>
-<body>
-<div class="page-veil"></div>
-
-<header class="site-header on-dark">
-  <a class="nav-logo" href="index.html">Bella <em>Duong</em></a>
-  <nav aria-label="Primary">
-    <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="leadership.html">Leadership &amp; Community</a></li>
-      <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</header>
-
-<div class="nav-overlay">
-  <ul>
-    <li style="--i:0"><a href="writing.html">Writing</a></li>
-    <li style="--i:1"><a href="leadership.html">Leadership &amp; Community</a></li>
-    <li style="--i:2"><a href="photography-performance.html">Photography &amp; Performance</a></li>
-    <li style="--i:3"><a href="about.html">About</a></li>
-    <li style="--i:4"><a href="contact.html">Résumé <span aria-hidden="true">↗</span></a></li>
-  </ul>
-</div>
-
-<main>
+---
+layout: default
+data: home
+dark_header: true
+---
+{%- assign d = site.data.home %}
 
   <!-- ============ HERO ============ -->
   <section class="hero" style="padding-top:0">
     <div class="hero-slides">
-      <div class="hero-slide active"><img src="assets/home/home-03.jpg" alt="Bella lunging for a forehand during a varsity tennis match"></div>
-      <div class="hero-slide"><img src="assets/theater/theater-02.jpg" alt="Bella in a yellow gingham dress performing in a period play"></div>
-      <div class="hero-slide"><img src="assets/singing/singing-02.jpg" alt="Bella singing front and center with the concert choir"></div>
-      <div class="hero-slide"><img src="assets/theater/theater-06.jpg" alt="Bella in a dramatic two-person scene under blue stage light"></div>
+{%- for s in d.hero.slides %}
+      <div class="hero-slide{% if forloop.first %} active{% endif %}">{% include img.html src=s.image alt=s.alt %}</div>
+{%- endfor %}
     </div>
 
     <div class="hero-content container">
-      <p class="hero-kicker line-mask in-view"><span style="--delay:.2s">Portfolio — Class of 2027</span></p>
+      <p class="hero-kicker line-mask in-view"><span style="--delay:.2s">{{ d.hero.kicker | escape }}</span></p>
       <h1 class="hero-title">
-        <span class="line-mask in-view"><span style="--delay:.35s">Bella</span></span>
-        <span class="line-mask in-view"><span class="indent" style="--delay:.5s">Duong</span></span>
+        <span class="line-mask in-view"><span style="--delay:.35s">{{ d.hero.first_name | escape }}</span></span>
+        <span class="line-mask in-view"><span class="indent" style="--delay:.5s">{{ d.hero.last_name | escape }}</span></span>
       </h1>
-      <!-- DRAFT COPY: replace with Bella's own tagline -->
-      <p class="hero-tag line-mask in-view"><span style="--delay:.7s">Writer, tutor, and performer — telling stories that move between two languages, and building communities that help others find their voice.</span></p>
+      <p class="hero-tag line-mask in-view"><span style="--delay:.7s">{{ d.hero.tagline | escape }}</span></p>
       <div class="hero-meta">
         <div class="hero-dots" aria-label="Slideshow controls"></div>
-        <a class="btn" href="about.html" style="border-color:#fff;color:#fff">Meet Bella <span class="arr">→</span></a>
+        <a class="btn" href="about.html" style="border-color:#fff;color:#fff">{{ d.hero.button | escape }} <span class="arr">→</span></a>
       </div>
     </div>
     <div class="hero-scroll">Scroll</div>
@@ -68,8 +31,8 @@
   <!-- ============ MARQUEE ============ -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Tutoring</span><span>Varsity Tennis</span><span>Performing Arts</span><span>Travel</span><span>Community Service</span><span>Family &amp; Friends</span>
-      <span>Tutoring</span><span>Varsity Tennis</span><span>Performing Arts</span><span>Travel</span><span>Community Service</span><span>Family &amp; Friends</span>
+      {% for w in d.marquee %}<span>{{ w | escape }}</span>{% endfor %}
+      {% for w in d.marquee %}<span>{{ w | escape }}</span>{% endfor %}
     </div>
   </div>
 
@@ -77,14 +40,13 @@
   <section>
     <div class="container grid-2">
       <div class="reveal reveal-left">
-        <p class="eyebrow">Hello, Xin chào</p>
-        <h2>American on paper, Vietnamese in the kitchen — a storyteller in both.</h2>
-        <!-- DRAFT COPY: replace with Bella's own words -->
-        <p class="lede">I'm Bella — a student at a New England boarding school who writes, tutors, dances, and photographs the world around her. This site gathers the work and the communities that matter most to me.</p>
-        <p style="margin-top:1.6rem"><a class="btn jade" href="about.html">My story <span class="arr">→</span></a></p>
+        <p class="eyebrow">{{ d.intro.eyebrow | escape }}</p>
+        <h2>{{ d.intro.heading | escape }}</h2>
+        <p class="lede">{% include mdi.html text=d.intro.text %}</p>
+        <p style="margin-top:1.6rem"><a class="btn jade" href="about.html">{{ d.intro.button | escape }} <span class="arr">→</span></a></p>
       </div>
       <div class="reveal reveal-right push-down">
-        <div class="frame tall"><img src="assets/singing/singing-04.jpg" alt="Bella singing with the chamber choir" loading="lazy" style="object-position:92% 50%"></div>
+        <div class="frame tall">{% include img.html src=d.intro.image alt=d.intro.alt focus=d.intro.focus lazy=true %}</div>
       </div>
     </div>
   </section>
@@ -92,125 +54,45 @@
   <!-- ============ QUOTE BAND ============ -->
   <section class="bg-ink tight">
     <div class="container reveal" style="text-align:center;max-width:900px">
-      <p class="eyebrow" style="justify-content:center">From my memoir</p>
-      <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.55">“It was a beautiful song, and I was the only one in the room who didn't know the lyrics.”</p>
-      <p style="margin-top:1.8rem"><a class="btn" href="writing.html">Read my writing <span class="arr">→</span></a></p>
+      <p class="eyebrow" style="justify-content:center">{{ d.quote.eyebrow | escape }}</p>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.55">{{ d.quote.text | escape }}</p>
+      <p style="margin-top:1.8rem"><a class="btn" href="writing.html">{{ d.quote.button | escape }} <span class="arr">→</span></a></p>
     </div>
   </section>
 
   <!-- ============ CHAPTERS ============ -->
+  {%- assign ch = d.chapters %}
   <section class="chapters">
     <div class="container">
       <h2 class="sec-title reveal">
-        <span class="st-main">Chapters</span>
-        <span class="st-sub">What I write, lead, perform, and see.</span>
+        <span class="st-main">{{ ch.title | escape }}</span>
+        <span class="st-sub">{{ ch.subtitle | escape }}</span>
       </h2>
 
       <div class="chapters-wrap">
         <aside class="ch-head" aria-hidden="true">
-          <p class="ch-title"><span class="ch-title-track"><span>Writing.</span><span>Leadership &amp; Community.</span><span>Performing Arts.</span><span>Photo&shy;graphy.</span></span></p>
-          <p class="ch-num"><span>0</span><span class="win"><span class="col"><span>1</span><span>2</span><span>3</span><span>4</span></span></span></p>
+          <p class="ch-title"><span class="ch-title-track">{% for c in ch.items %}<span>{{ c.title | escape }}</span>{% endfor %}</span></p>
+          <p class="ch-num"><span>0</span><span class="win"><span class="col">{% for c in ch.items %}<span>{{ forloop.index }}</span>{% endfor %}</span></span></p>
         </aside>
 
         <div class="ch-body">
-          <!-- DRAFT COPY: chapter summaries — refine with Bella -->
+{%- for c in ch.items %}
           <article class="chapter">
-            <div class="ch-head-sp"><p class="t">Writing.</p><p class="n">01</p></div>
+            <div class="ch-head-sp"><p class="t">{{ c.title | remove: "­" | escape }}</p><p class="n">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p></div>
             <div class="ch-slider" data-wipe-slider>
-              <div class="slide"><img src="assets/tfac/tfac-11.jpg" alt="Rows of sandals left outside a classroom door in Huế" loading="lazy"></div>
-              <div class="slide"><img src="assets/tfac/tfac-04.jpg" alt="A quiet lane in Huế, Vietnam" loading="lazy"></div>
-              <div class="slide"><img src="assets/tfac/tfac-07.jpg" alt="Teachers in the Phu Hai School computer lab" loading="lazy"></div>
+{%- for s in c.slides %}
+              <div class="slide">{% include img.html src=s.image alt=s.alt lazy=true %}</div>
+{%- endfor %}
             </div>
-            <h3 class="ch-label">Memoir · Flash Fiction · Journalism · Research</h3>
+            <h3 class="ch-label">{{ c.label | escape }}</h3>
             <div class="ch-text">
-              <h4>Stories that live between two languages</h4>
-              <p>From a memoir about losing my words at a family celebration, to a feature on the students I've tutored in Huế, writing is how I make sense of the in-between. Here you'll find my creative work, my reporting for <em>The Governor's Review</em> — the journal I co-founded — and my John Locke Institute essay.</p>
+              <h4>{{ c.heading | escape }}</h4>
+              <p>{% include mdi.html text=c.text %}</p>
             </div>
-            <div class="ch-cta"><a class="btn" href="writing.html">Read my writing <span class="arr">→</span></a></div>
+            <div class="ch-cta"><a class="btn" href="{{ c.link }}">{{ c.button | escape }} <span class="arr">→</span></a></div>
           </article>
-
-          <article class="chapter">
-            <div class="ch-head-sp"><p class="t">Leadership &amp; Community.</p><p class="n">02</p></div>
-            <div class="ch-slider" data-wipe-slider>
-              <div class="slide"><img src="assets/tfac/tfac-08.jpg" alt="Students at their monitors in the Phu Hai School computer lab" loading="lazy"></div>
-              <div class="slide"><img src="assets/aafc/aafc-05.jpg" alt="The Asian American Footsteps Conference group photo on a campus lawn" loading="lazy"></div>
-              <div class="slide"><img src="assets/aafc/aafc-02.jpg" alt="Students celebrating together at AAFC" loading="lazy"></div>
-            </div>
-            <h3 class="ch-label">Tutors for a Cause · AAFC · Special Olympics</h3>
-            <div class="ch-text">
-              <h4>Passing on what education gave me</h4>
-              <p>What began in eighth grade as one volunteer on a shaky video call is now a team of 15 tutors serving 200+ students in Vietnam, which I lead as Co-President of Tutors for a Cause. I also organized the regional Asian American Footsteps Conference for 200+ students from 20+ schools and direct our school's Special Olympics event — each a way of turning what I've been given into something I can pass on.</p>
-            </div>
-            <div class="ch-cta"><a class="btn" href="leadership.html">See my leadership <span class="arr">→</span></a></div>
-          </article>
-
-          <article class="chapter">
-            <div class="ch-head-sp"><p class="t">Performing Arts.</p><p class="n">03</p></div>
-            <div class="ch-slider" data-wipe-slider>
-              <div class="slide"><img src="assets/theater/theater-09.jpg" alt="The cast mid-number in a school musical" loading="lazy"></div>
-              <div class="slide"><img src="assets/singing/singing-01.jpg" alt="The choir performing at the holiday concert" loading="lazy"></div>
-              <div class="slide"><img src="assets/theater/theater-03.jpg" alt="The full ensemble on stage under purple light" loading="lazy"></div>
-            </div>
-            <h3 class="ch-label">Dance · Theater · Singing</h3>
-            <div class="ch-text">
-              <h4>Three ways to tell a story without writing it down</h4>
-              <p>After ten years of dance training I choreograph my own contemporary and lyrical pieces, I've played Amy in <em>Little Women</em> and Lisa in <em>Mamma Mia!</em>, and I sing with our Advanced Chorus and a cappella group. Each has taught me something different — trust in the people moving beside me, presence under the lights, and how to listen harder than I sing.</p>
-            </div>
-            <div class="ch-cta"><a class="btn" href="photography-performance.html#dance">See my performances <span class="arr">→</span></a></div>
-          </article>
-
-          <article class="chapter">
-            <div class="ch-head-sp"><p class="t">Photography.</p><p class="n">04</p></div>
-            <div class="ch-slider" data-wipe-slider>
-              <div class="slide"><img src="assets/photography/screen-05.jpg" alt="AP Photography: a field at dusk seen through textured glass" loading="lazy"></div>
-              <div class="slide"><img src="assets/photography/screen-12.jpg" alt="AP Photography: a girl with ice cream seen through painted glass" loading="lazy"></div>
-              <div class="slide"><img src="assets/photography/screen-04.jpg" alt="AP Photography: a laughing face under a sun hat, layered with texture" loading="lazy"></div>
-            </div>
-            <h3 class="ch-label">AP Photography Portfolio</h3>
-            <div class="ch-text">
-              <h4>Looking closer at the in-between</h4>
-              <p>My AP Photography portfolio layers everyday moments with texture — smeared glass, paint, and light — to make photographs about memory, thresholds, and the quiet evidence people leave behind.</p>
-            </div>
-            <div class="ch-cta"><a class="btn" href="photography-performance.html#photography">View the portfolio <span class="arr">→</span></a></div>
-          </article>
+{%- endfor %}
         </div>
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <p class="footer-name">Bella <em>Duong</em></p>
-      <p class="footer-tag">A portfolio of writing, leadership, performance, and photography.</p>
-    </div>
-    <div>
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="leadership.html">Leadership &amp; Community</a></li>
-        <li><a href="photography-performance.html">Photography &amp; Performance</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Résumé</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Connect</h5>
-      <ul>
-        <!-- PLACEHOLDER: point LinkedIn at Bella's real profile (every page's footer has this link) -->
-        <li><a href="mailto:belladuong2009@gmail.com">Email</a></li>
-        <li><a href="contact.html">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-base">
-    <span>© 2026 Bella Duong</span>
-    <span>Designed with ♡ and jade green</span>
-  </div>
-</footer>
-
-<script src="js/main.js?v=13"></script>
-</body>
-</html>

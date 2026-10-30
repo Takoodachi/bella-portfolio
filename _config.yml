@@ -1,2 +1,12 @@
 # Keep the editing guides off the live site
-exclude: [README.md, CLAUDE.md]
+exclude: [README.md, CLAUDE.md, tools]
+
+# Bump after changing anything in css/ or js/ so browsers fetch the new files
+assets_version: 14
+
+# Page text is written in Markdown (by the editor at /admin); keep quotes, dashes
+# and headings exactly as typed instead of letting Kramdown "improve" them
+kramdown:
+  auto_ids: false
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  typographic_symbols: {hellip: "...", mdash: "---", ndash: "--", laquo: "<<", raquo: ">>", laquo_space: "<< ", raquo_space: " >>"}

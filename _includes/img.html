@@ -1,0 +1,1 @@
+<img src="{{ include.src }}" alt="{{ include.alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %}{% if include.focus and include.focus != "" %} style="object-position:{{ include.focus }}"{% endif %}>

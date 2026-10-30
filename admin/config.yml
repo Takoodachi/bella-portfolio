@@ -1,0 +1,1516 @@
+# Website editor (Sveltia CMS) at belladuong.com/admin.
+# Field names must match the keys in _data/*.yml.
+backend:
+  name: github
+  repo: Takoodachi/bella-portfolio
+  branch: main
+  base_url: https://sveltia-cms-auth.takoodachi.workers.dev
+  auth_scope: public_repo
+site_url: https://belladuong.com
+display_url: https://belladuong.com
+media_folder: assets
+public_folder: /assets
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2000
+          height: 2000
+collections:
+- name: pages
+  label: Pages
+  icon: description
+  editor:
+    preview: false
+  description: Every word and photo on each page. Saving publishes the change — the live site updates in about a minute.
+  files:
+  - name: home
+    label: Home
+    file: _data/home.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: hero
+      label: Big slideshow at the top
+      widget: object
+      fields:
+      - name: slides
+        label: Slideshow photos
+        widget: list
+        hint: Drag to reorder. Wide (landscape) photos work best.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        summary: '{{fields.alt}}'
+      - name: kicker
+        label: Small line above the name
+        widget: string
+      - name: first_name
+        label: First name
+        widget: string
+      - name: last_name
+        label: Last name
+        widget: string
+      - name: tagline
+        label: Tagline
+        widget: text
+      - name: button
+        label: Button text
+        widget: string
+    - name: marquee
+      label: Scrolling words
+      widget: list
+      hint: The words that scroll across under the slideshow.
+      field:
+        name: word
+        label: Word
+        widget: string
+    - name: intro
+      label: Introduction
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        buttons: &id001
+        - bold
+        - italic
+        - link
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: button
+        label: Button text
+        widget: string
+      - name: image
+        label: Photo
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - &id002
+        name: focus
+        label: Photo focus
+        widget: string
+        hint: Which part stays visible when the photo is cropped, e.g. top, center, 30% 50%. Empty = the middle.
+        required: false
+    - name: quote
+      label: Quote band
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: text
+        label: Quote
+        widget: text
+      - name: button
+        label: Button text
+        widget: string
+    - name: chapters
+      label: Chapters
+      widget: object
+      fields:
+      - name: title
+        label: Section title
+        widget: string
+      - name: subtitle
+        label: Section subtitle
+        widget: string
+      - name: items
+        label: Chapters
+        widget: list
+        fields:
+        - name: title
+          label: Chapter name
+          widget: string
+          hint: Shown big on the left as you scroll.
+        - name: label
+          label: Small label
+          widget: string
+        - name: heading
+          label: Heading
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: button
+          label: Button text
+          widget: string
+        - name: link
+          label: Button link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address.
+        - name: slides
+          label: Photos
+          widget: list
+          hint: They wipe from one to the next.
+          fields:
+          - name: image
+            label: Photo
+            widget: image
+          - name: alt
+            label: Photo description
+            widget: string
+            hint: What the photo shows, for people using screen readers.
+          summary: '{{fields.alt}}'
+        summary: '{{fields.title}}'
+  - name: writing
+    label: Writing
+    file: _data/writing.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: hero
+      label: Top of the page
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label above the title
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Tilted photo card
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: caption
+        label: Handwritten caption under the photo
+        widget: string
+    - name: creative
+      label: Creative Writing
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: subtitle
+        label: Subtitle
+        widget: string
+      - name: pieces
+        label: Pieces
+        widget: list
+        hint: Drag to reorder. Reading time and vignette numbers update automatically.
+        collapsed: true
+        fields:
+        - name: kind
+          label: Type
+          widget: string
+          hint: e.g. Memoir, Flash Fiction, Vignette, Poetry. Vignettes are numbered in order.
+        - name: title
+          label: Title
+          widget: string
+        - name: description
+          label: Short description
+          widget: text
+        - name: body
+          label: Full text
+          widget: richtext
+          hint: 'Tip: paste straight from Google Docs.'
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        summary: '{{fields.title}} · {{fields.kind}}'
+      - name: cards
+        label: Cards under the pieces
+        widget: list
+        fields:
+        - name: tag
+          label: Small tag
+          widget: string
+          hint: e.g. Coming Soon
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: link
+          label: Link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address. Leave empty for no
+            link.
+          required: false
+        summary: '{{fields.title}}'
+      - name: recognition
+        label: Recognition
+        widget: object
+        fields:
+        - name: eyebrow
+          label: Small label
+          widget: string
+        - name: items
+          label: Items
+          widget: list
+          fields:
+          - name: title
+            label: Bold title
+            widget: string
+          - name: text
+            label: Details
+            widget: richtext
+            buttons: *id001
+            editor_components: []
+            modes:
+            - rich_text
+            - raw
+          summary: '{{fields.title}}'
+    - name: journalism
+      label: Journalism
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: feature
+        label: Feature article
+        widget: object
+        fields:
+        - name: title
+          label: Title
+          widget: string
+        - name: genre
+          label: Genre label
+          widget: string
+        - name: byline
+          label: Byline
+          widget: string
+        - name: blocks
+          label: Article
+          widget: list
+          summary: '{{fields.caption}}{{fields.text}}'
+          hint: Text and photos in reading order. Everything after the first text block opens with 'Read the full piece'.
+          types:
+          - name: text
+            label: Text
+            widget: object
+            fields:
+            - name: text
+              label: Text
+              widget: richtext
+              hint: Leave a blank line between paragraphs.
+              buttons: *id001
+              editor_components: []
+              modes:
+              - rich_text
+              - raw
+          - name: photo
+            label: Photo
+            widget: object
+            fields:
+            - name: image
+              label: Photo
+              widget: image
+            - name: alt
+              label: Photo description
+              widget: string
+              hint: What the photo shows, for people using screen readers.
+            - *id002
+            - name: caption
+              label: Caption
+              widget: string
+      - name: review
+        label: The Governor's Review (flip-book)
+        widget: object
+        fields:
+        - name: eyebrow
+          label: Small label
+          widget: string
+        - name: heading
+          label: Heading
+          widget: string
+        - name: intro
+          label: Intro sentence
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: cover
+          label: Magazine cover
+          widget: image
+        - name: cover_alt
+          label: Cover description
+          widget: string
+        - name: kicker
+          label: Section label in the magazine
+          widget: string
+        - name: title
+          label: Article title
+          widget: string
+        - name: dek
+          label: Subtitle
+          widget: text
+        - name: byline
+          label: Byline
+          widget: string
+        - name: lead_in
+          label: Opening words (small capitals)
+          widget: string
+          hint: The first words of the article, set in small capitals.
+        - name: body
+          label: Article text
+          widget: richtext
+          hint: Starts right after the opening words. Use headings for subheads; pages are laid out automatically.
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-four
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: bio
+          label: About the author
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: original
+          label: '''Originally published'' line'
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: issue_link
+          label: Link to the full issue
+          widget: string
+        - name: issue_label
+          label: Link text
+          widget: string
+      - name: roadmap
+        label: Card under the magazine
+        widget: object
+        fields:
+        - name: tag
+          label: Small tag
+          widget: string
+          hint: e.g. Coming Soon
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: link
+          label: Link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address. Leave empty for no
+            link.
+          required: false
+    - name: research
+      label: Research & Academic
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: essay
+        label: Essay with PDF reader
+        widget: object
+        fields:
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: button
+          label: Download button text
+          widget: string
+        - name: pdf
+          label: PDF file
+          widget: file
+          accept: .pdf
+        - name: label
+          label: PDF description
+          widget: string
+          hint: For screen readers.
+      - name: cards
+        label: Cards
+        widget: list
+        fields:
+        - name: tag
+          label: Small tag
+          widget: string
+          hint: e.g. Coming Soon
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: link
+          label: Link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address. Leave empty for no
+            link.
+          required: false
+        summary: '{{fields.title}}'
+  - name: leadership
+    label: Leadership & Community
+    file: _data/leadership.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: hero
+      label: Top of the page
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label above the title
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Tilted photo card
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: caption
+        label: Handwritten caption under the photo
+        widget: string
+    - name: tfac
+      label: Tutors for a Cause
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: stats
+        label: Numbers
+        widget: list
+        required: false
+        fields:
+        - name: number
+          label: Number
+          widget: string
+        - name: label
+          label: Label
+          widget: string
+        summary: '{{fields.number}} {{fields.label}}'
+      - name: image
+        label: Photo
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: curriculum
+        label: Curriculum expansion
+        widget: object
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        - name: heading
+          label: Heading
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          hint: Leave a blank line between paragraphs.
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+      - name: initiatives
+        label: Leadership initiatives
+        widget: object
+        fields:
+        - name: heading
+          label: Heading
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          hint: Leave a blank line between paragraphs.
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: button
+          label: Button text
+          widget: string
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+      - name: strip
+        label: Row of photos
+        widget: list
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        summary: '{{fields.alt}}'
+      - name: credit
+        label: Photo credit
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+    - name: aafc
+      label: Asian American Footsteps Conference
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Photo
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: recap
+        label: Event recap
+        widget: object
+        fields:
+        - name: heading
+          label: Heading
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          hint: Leave a blank line between paragraphs.
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+      - name: video
+        label: Highlights video
+        widget: object
+        fields:
+        - name: url
+          label: YouTube or Vimeo link
+          widget: string
+          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
+          required: false
+        - name: label
+          label: Placeholder title
+          widget: string
+        - name: note
+          label: Placeholder note
+          widget: string
+      - name: gallery
+        label: Photo grid
+        widget: list
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        - name: caption
+          label: Caption
+          widget: string
+        - name: tall
+          label: Tall (spans two rows)
+          widget: boolean
+          required: false
+        summary: '{{fields.caption}}'
+    - name: special_olympics
+      label: Special Olympics
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: reflection
+        label: Reflection card
+        widget: object
+        fields:
+        - name: tag
+          label: Small tag
+          widget: string
+          hint: e.g. Coming Soon
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: link
+          label: Link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address. Leave empty for no
+            link.
+          required: false
+      - name: cards
+        label: Cards on the right
+        widget: list
+        hint: Delete the 'Photos coming soon' cards once photos are added below.
+        required: false
+        fields:
+        - name: tag
+          label: Small tag
+          widget: string
+          hint: e.g. Coming Soon
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        - name: link
+          label: Link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address. Leave empty for no
+            link.
+          required: false
+        summary: '{{fields.title}}'
+      - name: photos
+        label: Photos
+        widget: list
+        required: false
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        - name: caption
+          label: Caption
+          widget: string
+          required: false
+        summary: '{{fields.alt}}'
+    - name: more
+      label: More ways I lead
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: items
+        label: Items
+        widget: list
+        fields:
+        - name: title
+          label: Bold title
+          widget: string
+        - name: text
+          label: Details
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        summary: '{{fields.title}}'
+  - name: photography
+    label: Photography & Performance
+    file: _data/photography.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: hero
+      label: Top of the page
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label above the title
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Tilted photo card
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: caption
+        label: Handwritten caption under the photo
+        widget: string
+    - name: photography
+      label: Photography
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: statement
+        label: Artist statement
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+    - name: scrapbook
+      label: Scrapbook gallery
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: photos
+        label: Photographs
+        widget: list
+        hint: Drag to reorder.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: Empty = 'Photograph N from AP portfolio'.
+          required: false
+        - name: caption
+          label: Caption
+          widget: string
+          hint: Empty = its number, like № 03.
+          required: false
+        - name: size
+          label: Size
+          widget: select
+          hint: Empty = standard size.
+          required: false
+          options:
+          - label: Wide
+            value: ph-wide
+          - label: Tall
+            value: ph-tall
+          - label: Large
+            value: ph-lg
+          - label: Large and wide
+            value: ph-wide ph-lg
+        summary: '{{fields.image}}'
+      - name: note
+        label: Note under the gallery
+        widget: string
+    - name: dance
+      label: Dance
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: video
+        label: Performance video
+        widget: object
+        fields:
+        - name: url
+          label: YouTube or Vimeo link
+          widget: string
+          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
+          required: false
+        - name: label
+          label: Placeholder title
+          widget: string
+        - name: note
+          label: Placeholder note
+          widget: string
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        summary: '{{fields.alt}}'
+    - name: theater
+      label: Theater
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: video
+        label: Performance video
+        widget: object
+        fields:
+        - name: url
+          label: YouTube or Vimeo link
+          widget: string
+          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
+          required: false
+        - name: label
+          label: Placeholder title
+          widget: string
+        - name: note
+          label: Placeholder note
+          widget: string
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        summary: '{{fields.alt}}'
+    - name: singing
+      label: Singing
+      widget: object
+      fields:
+      - name: nav_label
+        label: Name in the section menu
+        widget: string
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: video
+        label: Performance video
+        widget: object
+        fields:
+        - name: url
+          label: YouTube or Vimeo link
+          widget: string
+          hint: Paste the video's link and it plays right on the page. Leave empty to show the 'coming soon' box.
+          required: false
+        - name: label
+          label: Placeholder title
+          widget: string
+        - name: note
+          label: Placeholder note
+          widget: string
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        summary: '{{fields.alt}}'
+  - name: about
+    label: About
+    file: _data/about.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: hero
+      label: Top of the page
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label above the title
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Tilted photo card
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: caption
+        label: Handwritten caption under the photo
+        widget: string
+    - name: intro
+      label: My Story
+      widget: object
+      fields:
+      - name: image
+        label: Photo
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: richtext
+        hint: Leave a blank line between paragraphs.
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+    - name: stories
+      label: My Stories
+      widget: object
+      fields:
+      - name: title
+        label: Section title
+        widget: string
+      - name: subtitle
+        label: Section subtitle
+        widget: string
+      - name: cards
+        label: Story cards
+        widget: list
+        hint: Drag to reorder. Numbers update automatically.
+        fields:
+        - name: link
+          label: Card link
+          widget: string
+          hint: A page on this site (like writing.html or leadership.html#aafc) or a full web address.
+        - name: role
+          label: Small label at the top
+          widget: string
+        - name: big
+          label: Big word
+          widget: string
+        - name: small
+          label: Small word beside it
+          widget: string
+        - name: headline
+          label: Headline
+          widget: text
+        - name: tags
+          label: Hashtags
+          widget: list
+          field:
+            name: tag
+            label: Tag
+            widget: string
+            hint: 'Without the #'
+        - name: image
+          label: Photo
+          widget: image
+        - name: alt
+          label: Photo description
+          widget: string
+          hint: What the photo shows, for people using screen readers.
+        - *id002
+        summary: '{{fields.big}} — {{fields.role}}'
+      - name: lead
+        label: Big closing sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: text
+        label: Closing paragraph
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: resume_button
+        label: Résumé button text
+        widget: string
+      - name: contact_button
+        label: Contact button text
+        widget: string
+    - name: values
+      label: Values
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: items
+        label: Values
+        widget: list
+        fields:
+        - name: title
+          label: Title
+          widget: string
+        - name: text
+          label: Text
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        summary: '{{fields.title}}'
+    - name: recognition
+      label: Recognition
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: items
+        label: Items
+        widget: list
+        fields:
+        - name: title
+          label: Bold title
+          widget: string
+        - name: text
+          label: Details
+          widget: richtext
+          buttons: *id001
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+        summary: '{{fields.title}}'
+    - name: resume_band
+      label: Dark band at the bottom
+      widget: object
+      fields:
+      - name: heading
+        label: Heading
+        widget: string
+      - name: text
+        label: Text
+        widget: string
+      - name: resume_button
+        label: Résumé button text
+        widget: string
+      - name: linkedin_button
+        label: LinkedIn button text
+        widget: string
+  - name: resume
+    label: Résumé
+    file: _data/resume.yml
+    fields:
+    - name: meta
+      label: Browser tab & search results
+      widget: object
+      fields:
+      - name: title
+        label: Browser tab title
+        widget: string
+      - name: description
+        label: Search-result description
+        widget: text
+        hint: One sentence that search engines show under the title.
+      collapsed: true
+    - name: resume
+      label: Résumé viewer
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: button
+        label: Download button text
+        widget: string
+      - name: label
+        label: Résumé description
+        widget: string
+        hint: For screen readers.
+    - name: contact
+      label: Contact
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Small label
+        widget: string
+      - name: title_1
+        label: Title, first line
+        widget: string
+      - name: title_2
+        label: Title, second line (green)
+        widget: string
+      - name: lede
+        label: Intro sentence
+        widget: richtext
+        buttons: *id001
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+      - name: image
+        label: Tilted photo card
+        widget: image
+      - name: alt
+        label: Photo description
+        widget: string
+        hint: What the photo shows, for people using screen readers.
+      - *id002
+      - name: caption
+        label: Handwritten caption
+        widget: string
+      - name: email_label
+        label: Email card label
+        widget: string
+      - name: email_note
+        label: Email card note
+        widget: string
+      - name: linkedin_label
+        label: LinkedIn card label
+        widget: string
+      - name: linkedin_text
+        label: LinkedIn text before a link is added
+        widget: string
+      - name: linkedin_note
+        label: LinkedIn card note
+        widget: string
+- name: settings
+  label: Site settings
+  icon: settings
+  editor:
+    preview: false
+  files:
+  - name: site
+    label: Site settings
+    file: _data/site.yml
+    fields:
+    - name: email
+      label: Email address
+      widget: string
+      hint: Used on the Résumé page and in every footer.
+    - name: linkedin
+      label: LinkedIn profile link
+      widget: string
+      hint: Paste the full link (https://www.linkedin.com/in/…). Leave empty to show 'coming soon'.
+      required: false
+    - name: resume
+      label: Résumé PDF
+      widget: file
+      hint: Upload a new PDF to replace it everywhere. Remove your phone number and home address first — the site is public.
+      accept: .pdf
+    - name: footer_tagline
+      label: Footer tagline
+      widget: string
+    - name: copyright
+      label: Copyright line
+      widget: string
+    - name: credit
+      label: Footer credit
+      widget: string
